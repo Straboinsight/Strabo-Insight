@@ -528,7 +528,8 @@ footer {
       <p>Drop your name, company, and the geopolitical risk keeping you up at night. We'll respond within 24 hours with something useful. Not a sales deck.</p>
       <p class="c-email">chase@straboinsight.com</p>
     </div>
-    <form class="c-form" onsubmit="handleSubmit(event)">
+    <form class="c-form" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
       <div class="f-field">
         <label for="name">Name</label>
         <input type="text" id="name" placeholder="Your name" required autocomplete="name">
