@@ -514,7 +514,6 @@ footer {
         <input type="email" id="newsletter-email" placeholder="your@company.com" aria-label="Email address">
         <button type="button" id="newsletter-submit">Subscribe Free</button>
       </div>
-      <p class="nl-fine" id="newsletter-message" role="status" aria-live="polite"></p>
       <p class="nl-fine">The Strabo Signal &nbsp;&middot;&nbsp; Every Saturday &nbsp;&middot;&nbsp; 8am ET</p>
     </div>
   </div>
@@ -643,33 +642,11 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
 // Newsletter signup
 const newsletterEmail = document.getElementById('newsletter-email');
 const newsletterSubmit = document.getElementById('newsletter-submit');
-const newsletterMessage = document.getElementById('newsletter-message');
 
-if (newsletterEmail instanceof HTMLInputElement && newsletterSubmit instanceof HTMLButtonElement && newsletterMessage) {
-  newsletterSubmit.addEventListener('click', async () => {
+if (newsletterEmail instanceof HTMLInputElement && newsletterSubmit instanceof HTMLButtonElement) {
+  newsletterSubmit.addEventListener('click', () => {
     const email = newsletterEmail.value.trim();
-
-    newsletterMessage.textContent = '';
-    newsletterSubmit.disabled = true;
-
-    try {
-      const response = await fetch('/.netlify/functions/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Subscription failed');
-      }
-
-      newsletterMessage.textContent = "You're subscribed!";
-      newsletterEmail.value = '';
-    } catch {
-      newsletterMessage.textContent = 'Something went wrong, try again.';
-    } finally {
-      newsletterSubmit.disabled = false;
-    }
+    window.location.href = `https://chases-newsletter-60ac53.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`;
   });
 }
 
