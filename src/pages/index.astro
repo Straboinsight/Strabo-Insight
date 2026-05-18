@@ -511,9 +511,10 @@ footer {
     </div>
     <div>
       <div class="nl-form">
-        <input type="email" placeholder="your@company.com" aria-label="Email address">
-        <button type="button">Subscribe Free</button>
+        <input type="email" id="newsletter-email" placeholder="your@company.com" aria-label="Email address">
+        <button type="button" id="newsletter-submit">Subscribe Free</button>
       </div>
+      <p class="nl-fine" id="newsletter-message" role="status" aria-live="polite"></p>
       <p class="nl-fine">The Strabo Signal &nbsp;&middot;&nbsp; Every Saturday &nbsp;&middot;&nbsp; 8am ET</p>
     </div>
   </div>
@@ -639,13 +640,37 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
 
-// Form submit
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = 'Sent';
-  btn.style.background = 'rgba(196,154,74,0.6)';
-  btn.disabled = true;
+// Newsletter signup
+const newsletterEmail = document.getElementById('newsletter-email');
+const newsletterSubmit = document.getElementById('newsletter-submit');
+const newsletterMessage = document.getElementById('newsletter-message');
+
+if (newsletterEmail instanceof HTMLInputElement && newsletterSubmit instanceof HTMLButtonElement && newsletterMessage) {
+  newsletterSubmit.addEventListener('click', async () => {
+    const email = newsletterEmail.value.trim();
+
+    newsletterMessage.textContent = '';
+    newsletterSubmit.disabled = true;
+
+    try {
+      const response = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Subscription failed');
+      }
+
+      newsletterMessage.textContent = "You're subscribed!";
+      newsletterEmail.value = '';
+    } catch {
+      newsletterMessage.textContent = 'Something went wrong, try again.';
+    } finally {
+      newsletterSubmit.disabled = false;
+    }
+  });
 }
 
 // Button magnetic effect (desktop only)
