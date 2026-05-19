@@ -520,23 +520,23 @@ footer {
       <p>Drop your name, company, and the geopolitical risk keeping you up at night. We'll respond within 24 hours with something useful. Not a sales deck.</p>
       <p class="c-email">chase@straboinsight.com</p>
     </div>
-    <form class="c-form" name="contact" method="POST" data-netlify="true">
+    <form class="c-form" name="contact" method="POST" data-netlify="true" action="/thanks">
       <input type="hidden" name="form-name" value="contact">
       <div class="f-field">
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your name" required autocomplete="name">
+        <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
       </div>
       <div class="f-field">
         <label for="company">Company</label>
-        <input type="text" id="company" placeholder="Company name" autocomplete="organization">
+        <input type="text" id="company" name="company" placeholder="Company name" autocomplete="organization">
       </div>
       <div class="f-field">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="your@company.com" required autocomplete="email">
+        <input type="email" id="email" name="email" placeholder="your@company.com" required autocomplete="email">
       </div>
       <div class="f-field">
         <label for="concern">What's your biggest supply chain concern right now?</label>
-        <textarea id="concern" placeholder="Tell us what's on your radar..."></textarea>
+        <textarea id="concern" name="concern" placeholder="Tell us what's on your radar..."></textarea>
       </div>
       <div>
         <button type="submit" class="btn-p">Send Message</button>
