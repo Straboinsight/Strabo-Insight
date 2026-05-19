@@ -1,0 +1,9 @@
+---
+// Client-only island — WebGL / window APIs must not run during SSR.
+---
+<div id="globeViz" class="hero-globe-canvas" aria-hidden="true"></div>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+<script is:inline src="//cdn.jsdelivr.net/npm/react-globe.gl"></script>
+<script is:inline src="/globe-init.js"></script>
