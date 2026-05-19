@@ -213,12 +213,9 @@ nav ul a:hover { color: var(--paper); }
 .nl-inner h2 { font-family: var(--fh); font-size: clamp(2rem,2.75vw,3rem); font-weight: 500; line-height: 1.1; margin-bottom: 1.25rem; }
 .nl-inner h2 em { font-style: normal; color: var(--gold); }
 .nl-inner p { font-size: 0.95rem; color: rgba(247,244,238,0.5); line-height: 1.8; }
-.nl-form { display: flex; border: 0.5px solid rgba(122,143,160,0.22); border-radius: 1px; overflow: hidden; transition: border-color 0.2s; margin-bottom: 1rem; }
-.nl-form:focus-within { border-color: var(--gold-line); }
-.nl-form input { flex: 1; background: transparent; border: none; padding: 1rem 1.25rem; color: var(--paper); font-family: var(--fb); font-size: 0.9rem; outline: none; }
-.nl-form input::placeholder { color: rgba(122,143,160,0.3); }
-.nl-form button { background: var(--gold); color: var(--navy-deep); border: none; padding: 1rem 1.5rem; font-family: var(--fm); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
-.nl-form button:hover { background: #d4aa5a; }
+.nl-form { margin-bottom: 1rem; }
+.nl-form a { display: inline-block; background: var(--gold); color: var(--navy-deep); border: none; padding: 1rem 1.5rem; font-family: var(--fm); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s; text-decoration: none; border-radius: 1px; }
+.nl-form a:hover { background: #d4aa5a; }
 .nl-fine { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(122,143,160,0.25); }
 
 /* ─── CONTACT ─── */
@@ -511,8 +508,7 @@ footer {
     </div>
     <div>
       <div class="nl-form">
-        <input type="email" id="newsletter-email" placeholder="your@company.com" aria-label="Email address">
-        <button type="button" id="newsletter-submit">Subscribe Free</button>
+        <a href="https://chases-newsletter-60ac53.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe Free</a>
       </div>
       <p class="nl-fine">The Strabo Signal &nbsp;&middot;&nbsp; Every Saturday &nbsp;&middot;&nbsp; 8am ET</p>
     </div>
@@ -638,17 +634,6 @@ const countObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
-
-// Newsletter signup
-const newsletterEmail = document.getElementById('newsletter-email');
-const newsletterSubmit = document.getElementById('newsletter-submit');
-
-if (newsletterEmail instanceof HTMLInputElement && newsletterSubmit instanceof HTMLButtonElement) {
-  newsletterSubmit.addEventListener('click', () => {
-    const email = newsletterEmail.value.trim();
-    window.location.href = `https://chases-newsletter-60ac53.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`;
-  });
-}
 
 // Button magnetic effect (desktop only)
 if (window.matchMedia('(hover: hover)').matches) {
