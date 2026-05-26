@@ -1,3 +1,6 @@
+---
+import GlobeViz from "../components/GlobeViz.astro";
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +28,7 @@
   --fh:         'EB Garamond', Georgia, serif;
   --fb:         'DM Sans', system-ui, sans-serif;
   --fm:         'Space Mono', monospace;
+  --grain:      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
 }
 
 html { scroll-behavior: smooth; }
@@ -34,7 +38,7 @@ body { background: var(--navy); color: var(--paper); font-family: var(--fb); fon
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-image: var(--grain);
   opacity: 0.022;
 }
 
@@ -94,14 +98,50 @@ nav ul a:hover { color: var(--paper); }
 
 /* ─── HERO ─── */
 .hero {
-  min-height: 100dvh; display: flex; flex-direction: column; justify-content: center;
-  padding: 0 3rem; position: relative; overflow: hidden;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 48%);
+  align-items: center;
+  gap: 1.5rem 2.5rem;
+  padding: 0 3rem;
+  position: relative;
+  overflow: hidden;
   border-bottom: 0.5px solid var(--bd);
 }
 .hero-content {
   display: flex; flex-direction: column; justify-content: center;
   padding: 8rem 0 6rem; max-width: 680px;
-  position: relative; z-index: 1;
+  position: relative; z-index: 2;
+}
+.hero-globe {
+  position: relative;
+  z-index: 1;
+  height: min(78vh, 760px);
+  min-height: 320px;
+  width: 100%;
+  background: var(--navy);
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.35s;
+}
+/* Same film grain as body so the globe area matches the page */
+.hero-globe::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: var(--grain);
+  opacity: 0.022;
+}
+.hero-globe-canvas,
+#globeViz {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+#globeViz canvas {
+  display: block;
 }
 .hero-lbl { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; margin-bottom: 2rem; }
 .hero h1 { font-family: var(--fh); font-size: clamp(3rem, 5.5vw, 6.5rem); font-weight: 500; line-height: 1.02; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; }
@@ -300,7 +340,25 @@ footer {
 @keyframes drawLine  { to { stroke-dashoffset: 0; } }
 
 /* ─── RESPONSIVE ─── */
+@media (min-width: 1025px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 54%);
+  }
+  .hero-globe {
+    height: min(88vh, 900px);
+    min-height: 400px;
+  }
+}
 @media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .hero-content { max-width: none; }
+  .hero-globe {
+    height: min(52vh, 480px);
+    margin: -1rem 0 0;
+  }
   .prob-header { grid-template-columns: 1fr; gap: 3rem; }
   .about { grid-template-columns: 1fr; gap: 3rem; }
   .about-l { position: static; }
@@ -309,6 +367,8 @@ footer {
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
   nav ul { display: none; }
+  .hero { min-height: auto; }
+  .hero-globe { display: none; }
   .hero, .sec, .sec-l, .nl, .contact-sec, .closing { padding: 5rem 1.5rem; }
   .hero-content { padding: 7rem 0 5rem; }
   .bento, .how { grid-template-columns: 1fr; }
@@ -354,6 +414,9 @@ footer {
       <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" class="btn-p" target="_blank" rel="noopener noreferrer">Get the Brief &mdash; $349/mo &middot; Founding Rate</a>
       <a href="#contact" class="btn-s">Explore Consulting</a>
     </div>
+  </div>
+  <div class="hero-globe">
+    <GlobeViz />
   </div>
 </section>
 
@@ -521,23 +584,23 @@ footer {
       <p>Drop your name, company, and the geopolitical risk keeping you up at night. We'll respond within 24 hours.</p>
       <p class="c-email">chase@straboinsight.com</p>
     </div>
-    <form class="c-form" name="contact" method="POST" data-netlify="true">
+    <form class="c-form" name="contact" method="POST" data-netlify="true" action="/thanks">
       <input type="hidden" name="form-name" value="contact">
       <div class="f-field">
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your name" required autocomplete="name">
+        <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
       </div>
       <div class="f-field">
         <label for="company">Company</label>
-        <input type="text" id="company" placeholder="Company name" autocomplete="organization">
+        <input type="text" id="company" name="company" placeholder="Company name" autocomplete="organization">
       </div>
       <div class="f-field">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="your@company.com" required autocomplete="email">
+        <input type="email" id="email" name="email" placeholder="your@company.com" required autocomplete="email">
       </div>
       <div class="f-field">
         <label for="concern">What's your biggest supply chain concern right now?</label>
-        <textarea id="concern" placeholder="Tell us what's on your radar..."></textarea>
+        <textarea id="concern" name="concern" placeholder="Tell us what's on your radar..."></textarea>
       </div>
       <div>
         <button type="submit" class="btn-p">Send Message</button>
