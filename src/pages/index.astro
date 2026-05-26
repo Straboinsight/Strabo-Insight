@@ -6,8 +6,133 @@ import GlobeViz from "../components/GlobeViz.astro";
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strabo Insight — Supply Chain Geopolitical Intelligence</title>
+
+<!-- Primary Meta -->
+<title>Strabo Insight — Geopolitical Intelligence for US Supply Chain Operators</title>
+<meta name="description" content="Geopolitical intelligence for US supply chain operators. Monthly briefs that translate tariffs, port closures, and policy shifts into procurement decisions.">
+<meta name="keywords" content="supply chain intelligence, geopolitical risk, supply chain risk, tariff analysis, sourcing intelligence, US manufacturing, Asia supply chain, Latin America supply chain, procurement intelligence, supply chain monitoring, supply chain geopolitics, manufacturing risk">
+<meta name="author" content="Strabo Insight">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://straboinsight.com/">
+
+<!-- Favicons & PWA -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#091E38">
+<meta name="application-name" content="Strabo Insight">
+<meta name="apple-mobile-web-app-title" content="Strabo Insight">
+
+<!-- Open Graph (LinkedIn / Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Strabo Insight">
+<meta property="og:title" content="Strabo Insight — Geopolitical Intelligence for US Supply Chain Operators">
+<meta property="og:description" content="Monthly briefs and hands-on exposure sessions that translate tariffs, port closures, and policy shifts into specific procurement and sourcing decisions for US manufacturers.">
+<meta property="og:url" content="https://straboinsight.com/">
+<meta property="og:image" content="https://straboinsight.com/home.png">
+<meta property="og:image:secure_url" content="https://straboinsight.com/home.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="757">
+<meta property="og:image:alt" content="Strabo Insight — supply chain geopolitical intelligence platform">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Strabo Insight — Geopolitical Intelligence for US Supply Chain Operators">
+<meta name="twitter:description" content="Monthly briefs and hands-on exposure sessions that translate global flashpoints into procurement decisions for US manufacturers.">
+<meta name="twitter:image" content="https://straboinsight.com/home.png">
+<meta name="twitter:image:alt" content="Strabo Insight — supply chain geopolitical intelligence platform">
+
+<!-- Structured Data: Organization, WebSite, Services -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://straboinsight.com/#organization",
+      "name": "Strabo Insight",
+      "url": "https://straboinsight.com/",
+      "email": "chase@straboinsight.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://straboinsight.com/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://straboinsight.com/home.png",
+      "description": "Geopolitical intelligence for US supply chain operators. Monthly briefs and exposure sessions that translate global flashpoints into procurement and sourcing decisions.",
+      "founder": {
+        "@type": "Person",
+        "name": "Chase",
+        "jobTitle": "Founder"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/strabo-insight"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "chase@straboinsight.com",
+        "availableLanguage": ["English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://straboinsight.com/#website",
+      "url": "https://straboinsight.com/",
+      "name": "Strabo Insight",
+      "description": "Supply chain geopolitical intelligence for US manufacturers.",
+      "publisher": { "@id": "https://straboinsight.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://straboinsight.com/#brief",
+      "name": "Supply Chain Intelligence Brief",
+      "serviceType": "Geopolitical intelligence subscription",
+      "provider": { "@id": "https://straboinsight.com/#organization" },
+      "areaServed": "United States",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "US manufacturers and supply chain operators with Asia or Latin America exposure"
+      },
+      "description": "Monthly intelligence brief covering 3–5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure.",
+      "offers": {
+        "@type": "Offer",
+        "price": "249",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "249",
+          "priceCurrency": "USD",
+          "unitText": "MONTH"
+        },
+        "url": "https://straboinsight.com/#brief",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://straboinsight.com/#exposure-session",
+      "name": "Geopolitical Exposure Session",
+      "serviceType": "Supply chain risk consulting engagement",
+      "provider": { "@id": "https://straboinsight.com/#organization" },
+      "areaServed": "United States",
+      "description": "Hands-on session that maps your specific vendors, regions, and trade lanes, identifies top geopolitical risks, and builds an AI monitoring system tailored to your operation, plus a 30-day action plan."
+    }
+  ]
+}
+</script>
+
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono&family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -110,13 +235,14 @@ nav ul a:hover { color: var(--paper); }
 }
 .hero-content {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 8rem 0 6rem; max-width: 680px;
+  padding: 8rem 0 8rem; max-width: 680px;
   position: relative; z-index: 2;
 }
 .hero-globe {
   position: relative;
   z-index: 1;
-  height: min(78vh, 760px);
+  align-self: center;
+  height: min(60vh, 580px);
   min-height: 320px;
   width: 100%;
   background: var(--navy);
@@ -345,8 +471,8 @@ footer {
     grid-template-columns: minmax(0, 1fr) minmax(380px, 54%);
   }
   .hero-globe {
-    height: min(88vh, 900px);
-    min-height: 400px;
+    height: min(70vh, 720px);
+    min-height: 380px;
   }
 }
 @media (max-width: 1024px) {
