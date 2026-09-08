@@ -6,7 +6,18 @@ import GlobeViz from "../components/GlobeViz.astro";
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strabo Insight — Supply Chain Geopolitical Intelligence</title>
+<title>Strabo Insight | Geopolitical Intelligence for US Supply Chain Operators</title>
+<meta name="description" content="Geopolitical intelligence for US manufacturers and distributors with Asia and Latin America exposure. Exposure Sessions, monthly monitoring, and a monthly brief that turn tariffs, port closures, and policy shifts into sourcing decisions.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Strabo Insight | Geopolitical Intelligence for US Supply Chain Operators">
+<meta property="og:description" content="Exposure Sessions, monthly monitoring, and a monthly brief that turn global flashpoints into procurement decisions for US manufacturers.">
+<meta property="og:url" content="https://straboinsight.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Strabo Insight | Geopolitical Intelligence for US Supply Chain Operators">
+<meta name="twitter:description" content="Exposure Sessions, monthly monitoring, and a monthly brief that turn global flashpoints into procurement decisions for US manufacturers.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono&family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -189,15 +200,21 @@ nav ul a:hover { color: var(--paper); }
 .offer-head { max-width: 640px; margin-bottom: 4.5rem; }
 .offer-head h2 { font-family: var(--fh); font-size: clamp(2.25rem,3.5vw,3.75rem); font-weight: 500; line-height: 1.08; color: var(--navy); margin-bottom: 1rem; }
 .offer-head p { font-size: 0.97rem; color: rgba(9,30,56,0.6); line-height: 1.75; }
-.offers { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.25rem; }
-.card { border: 0.5px solid var(--bdl); border-radius: 2px; padding: 3rem; background: var(--paper-warm); transition: box-shadow 0.3s; }
+.offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+.card { border: 0.5px solid var(--bdl); border-radius: 2px; padding: 2.25rem; background: var(--paper-warm); transition: box-shadow 0.3s; display: flex; flex-direction: column; }
+.card > .btn-p { align-self: flex-start; margin-top: auto; }
+.card-terms { font-size: 0.8rem; color: rgba(9,30,56,0.55); line-height: 1.6; margin-bottom: 0.75rem; }
+.card-prereq { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(9,30,56,0.4); margin-bottom: 2rem; }
+.card-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(9,30,56,0.35); margin-top: 1rem; line-height: 1.6; }
+.card.feat .card-fine { color: rgba(122,143,160,0.45); }
 .card:hover { box-shadow: 0 12px 40px rgba(9,30,56,0.08); }
 .card.feat { background: var(--navy); border-color: var(--gold-line); color: var(--paper); position: relative; overflow: hidden; }
 .card.feat::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--gold), rgba(196,154,74,0.2)); }
 .card-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(9,30,56,0.4); display: block; margin-bottom: 1.75rem; }
 .card.feat .card-tag { color: var(--gold); opacity: 0.8; }
-.card h3 { font-family: var(--fh); font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; }
-.card-price { font-family: var(--fh); font-size: 3rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; line-height: 1; }
+.card h3 { font-family: var(--fh); font-size: 1.75rem; font-weight: 500; margin-bottom: 0.75rem; line-height: 1.15; }
+.card-price { font-family: var(--fh); font-size: 2.75rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; line-height: 1; }
+.card-price-solo { margin-bottom: 1.75rem; }
 .card-price span { font-family: var(--fb); font-size: 0.78rem; font-weight: 400; color: rgba(9,30,56,0.4); }
 .card.feat .card-price { color: var(--gold); }
 .card.feat .card-price span { color: rgba(196,154,74,0.5); }
@@ -205,11 +222,13 @@ nav ul a:hover { color: var(--paper); }
 .card.feat .card-delivery { color: rgba(196,154,74,0.5); }
 .card-desc { font-size: 0.92rem; line-height: 1.75; margin-bottom: 2rem; color: rgba(9,30,56,0.62); }
 .card.feat .card-desc { color: rgba(247,244,238,0.62); }
+.card-listhead { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(9,30,56,0.45); margin-bottom: -0.75rem; }
+.card.feat .card-listhead { color: rgba(196,154,74,0.7); }
 .card ul { list-style: none; margin-bottom: 2rem; border-top: 0.5px solid var(--bdl); padding-top: 1.5rem; }
 .card.feat ul { border-top-color: var(--bd); }
 .card ul li { font-size: 0.875rem; color: rgba(9,30,56,0.68); padding: 0.55rem 0; border-bottom: 0.5px solid rgba(9,30,56,0.06); display: flex; gap: 0.875rem; align-items: flex-start; line-height: 1.55; }
 .card.feat ul li { color: rgba(247,244,238,0.62); border-bottom-color: rgba(122,143,160,0.08); }
-.card ul li::before { content: '—'; color: var(--gold); opacity: 0.6; flex-shrink: 0; margin-top: 1px; font-size: 0.8rem; }
+.card ul li::before { content: ''; display: block; width: 12px; height: 1px; background: var(--gold); opacity: 0.6; flex-shrink: 0; margin-top: 0.65em; }
 .card.feat ul li::before { opacity: 1; }
 .founding { margin-bottom: 2rem; padding: 1.25rem 1.5rem; border: 0.5px solid var(--gold-line); border-radius: 1px; background: var(--gold-dim); }
 .founding-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
@@ -360,6 +379,8 @@ footer {
     margin: -1rem 0 0;
   }
   .prob-header { grid-template-columns: 1fr; gap: 3rem; }
+  .offers { grid-template-columns: 1fr; }
+  .card { padding: 3rem; }
   .about { grid-template-columns: 1fr; gap: 3rem; }
   .about-l { position: static; }
   .about-r { border-left: none; padding-left: 0; border-top: 0.5px solid var(--bd); padding-top: 3rem; }
@@ -376,6 +397,7 @@ footer {
   .bento-item:last-child { border-bottom: none; }
   .step { border-right: none; border-bottom: 0.5px solid var(--bd); }
   .offers, .closing-offers { grid-template-columns: 1fr; }
+  .card { padding: 2.25rem 1.5rem; }
   .offer-head { grid-template-columns: 1fr; gap: 2rem; }
   .offer-head p { text-align: left; max-width: 100%; }
   .how-head { grid-template-columns: 1fr; gap: 2rem; }
@@ -396,11 +418,11 @@ footer {
   </a>
   <ul>
     <li><a href="#problem">The Problem</a></li>
+    <li><a href="#brief">Work With Us</a></li>
     <li><a href="#how">Process</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#brief">Work With Us</a></li>
     <li><a href="#newsletter">Free Intelligence</a></li>
-    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Session</a></li>
   </ul>
 </nav>
 
@@ -411,8 +433,9 @@ footer {
     <h1>Your supply chain<br>has <em>blind spots.</em><br>We find them.</h1>
     <p class="hero-sub">Tariffs shift. Ports close. Policies change overnight. Most operations leaders find out too late. Strabo Insight puts the intelligence in front of you first.</p>
     <div class="hero-btns">
-      <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" class="btn-p" target="_blank" rel="noopener noreferrer">Get the Brief &mdash; $349/mo &middot; Founding Rate</a>
-      <a href="#contact" class="btn-s">Explore Consulting</a>
+      <a href="#contact" class="btn-p">Book an Exposure Session &middot; $1,500</a>
+      <!-- NOV 1: change to "Get the Brief · $349/mo" -->
+      <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" class="btn-s" target="_blank" rel="noopener noreferrer">Get the Brief &middot; $299/mo</a>
     </div>
   </div>
   <div class="hero-globe">
@@ -422,7 +445,7 @@ footer {
 
 <!-- TICKER -->
 <div class="ticker">
-  <span>Taiwan Strait &nbsp;&middot;&nbsp; semiconductor supply risk &nbsp;&nbsp;&bull;&nbsp;&nbsp; Mexico nearshoring &nbsp;&middot;&nbsp; labor cost volatility &nbsp;&nbsp;&bull;&nbsp;&nbsp; Red Sea rerouting &nbsp;&middot;&nbsp; 14-day avg delay &nbsp;&nbsp;&bull;&nbsp;&nbsp; US-China tariffs &nbsp;&middot;&nbsp; component pricing impact &nbsp;&nbsp;&bull;&nbsp;&nbsp; Brazil port congestion &nbsp;&middot;&nbsp; Q3 commodity delays &nbsp;&nbsp;&bull;&nbsp;&nbsp; Taiwan Strait &nbsp;&middot;&nbsp; semiconductor supply risk &nbsp;&nbsp;&bull;&nbsp;&nbsp; Mexico nearshoring &nbsp;&middot;&nbsp; labor cost volatility &nbsp;&nbsp;&bull;&nbsp;&nbsp; Red Sea rerouting &nbsp;&middot;&nbsp; 14-day avg delay &nbsp;&nbsp;&bull;&nbsp;&nbsp; US-China tariffs &nbsp;&middot;&nbsp; component pricing impact &nbsp;&nbsp;&bull;&nbsp;&nbsp; Brazil port congestion &nbsp;&middot;&nbsp; Q3 commodity delays &nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+  <span>Taiwan Strait &nbsp;&middot;&nbsp; semiconductor concentration &nbsp;&nbsp;&bull;&nbsp;&nbsp; Mexico nearshoring &nbsp;&middot;&nbsp; labor and energy risk &nbsp;&nbsp;&bull;&nbsp;&nbsp; Red Sea &nbsp;&middot;&nbsp; routing and insurance volatility &nbsp;&nbsp;&bull;&nbsp;&nbsp; US-China tariffs &nbsp;&middot;&nbsp; landed cost exposure &nbsp;&nbsp;&bull;&nbsp;&nbsp; Brazil ports &nbsp;&middot;&nbsp; congestion and customs cycles &nbsp;&nbsp;&bull;&nbsp;&nbsp; Vietnam &nbsp;&middot;&nbsp; capacity and rules of origin &nbsp;&nbsp;&bull;&nbsp;&nbsp; Taiwan Strait &nbsp;&middot;&nbsp; semiconductor concentration &nbsp;&nbsp;&bull;&nbsp;&nbsp; Mexico nearshoring &nbsp;&middot;&nbsp; labor and energy risk &nbsp;&nbsp;&bull;&nbsp;&nbsp; Red Sea &nbsp;&middot;&nbsp; routing and insurance volatility &nbsp;&nbsp;&bull;&nbsp;&nbsp; US-China tariffs &nbsp;&middot;&nbsp; landed cost exposure &nbsp;&nbsp;&bull;&nbsp;&nbsp; Brazil ports &nbsp;&middot;&nbsp; congestion and customs cycles &nbsp;&nbsp;&bull;&nbsp;&nbsp; Vietnam &nbsp;&middot;&nbsp; capacity and rules of origin &nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
 </div>
 
 <!-- PROBLEM -->
@@ -431,25 +454,25 @@ footer {
   <div class="prob-header reveal">
     <h2>Geopolitics doesn't wait for your <em>Q4 review.</em></h2>
     <div class="prob-body">
-      <p>A tariff announcement drops on a Tuesday. By Friday, manufacturers sourcing from China are looking at input cost increases of 20 cents on every imported dollar, and their procurement teams are scrambling. It wasn't unpredictable. <strong>You just didn't have the right intelligence.</strong></p>
+      <p>A tariff announcement drops on a Tuesday. By Friday, manufacturers sourcing from China are repricing every open PO, and their procurement teams are scrambling. It wasn't unpredictable. <strong>You just didn't have the right intelligence.</strong></p>
       <p>Geopolitical analysis has always lived inside enterprise risk platforms, government briefings, and five-figure consulting retainers. Operations leaders at small to mid-size US manufacturers have been priced out of the room. They absorb the cost. Then they explain it in the next board meeting.</p>
       <p>Strabo Insight was built to change that equation.</p>
     </div>
   </div>
   <div class="bento reveal">
     <div class="bento-item">
-      <div class="bento-n"><span class="count-up" data-target="90">0</span>%</div>
+      <div class="bento-n"><span class="count-up" data-target="90">90</span>%</div>
       <div class="bento-l">of tariff costs land on US importers. Foreign exporters absorb almost none of it.</div>
-      <div class="bento-src">Brookings Institution &nbsp;&middot;&nbsp; Yale University</div>
+      <div class="bento-src">Fajgelbaum and Khandelwal &nbsp;&middot;&nbsp; Brookings Papers on Economic Activity &nbsp;&middot;&nbsp; 2026</div>
     </div>
     <div class="bento-item">
-      <div class="bento-n"><span class="count-up" data-target="33">0</span>%</div>
-      <div class="bento-l">surge in geopolitical supply chain disruption alerts in 2025, extending lead times across supplier networks.</div>
-      <div class="bento-src">Achilles &nbsp;&middot;&nbsp; Journal of Supply Chain</div>
+      <div class="bento-n"><span class="count-up" data-target="33">33</span>%</div>
+      <div class="bento-l">rise in supply chain disruption alerts in 2025 across 200,000 suppliers. Geopolitical alerts alone rose 167%.</div>
+      <div class="bento-src">Achilles &nbsp;&middot;&nbsp; Global Supply Chain Disruption Analysis &nbsp;&middot;&nbsp; 2026</div>
     </div>
     <div class="bento-item">
-      <div class="bento-n">$349</div>
-      <div class="bento-l">Less than one hour of tariff-driven disruption cost at a $50M manufacturer. That's the founding rate of the Brief.</div>
+      <div class="bento-n">5 to 7</div>
+      <div class="bento-l">suppliers we go deep on in every Exposure Session. Selected by spend, replaceability, and lead time.</div>
       <div class="bento-src">Strabo Insight</div>
     </div>
   </div>
@@ -460,43 +483,71 @@ footer {
   <div class="lbl lbl-dark reveal">Work With Us</div>
   <div class="offer-head reveal">
     <h2>Intelligence that pays for itself.</h2>
-    <p>Your competitors will find out about the next disruption when their freight forwarder calls. You'll have known for 30 days. Two ways to get ahead of it.</p>
+    <p>Strabo is the risk team for companies that don't have one. Three ways in. Start where your exposure is.</p>
   </div>
   <div class="offers reveal">
+
+    <!-- Card 1: Exposure Session (featured) -->
     <div class="card feat">
-      <span class="card-tag" style="color:#C49A4A;">Application Only &middot; Limited Availability</span>
+      <span class="card-tag">Start here &middot; One engagement per week</span>
       <h3>Geopolitical Exposure Session</h3>
-      <p class="card-desc">Most supply chain leaders don't know where their geopolitical exposure actually sits until something goes wrong. This session changes that. We map your specific vendors, regions, and trade lanes, identify your top risks, and build a monitoring system your team runs every week. This is a working engagement, not a presentation. The investment is scoped to your situation.</p>
+      <div class="card-price">$1,500</div>
+      <div class="card-delivery">Paid at booking</div>
+      <p class="card-desc">Four days of research on your supply chain, delivered in one working session. You send your supplier base: countries, ports, lead times, dependencies. We map where your geopolitical exposure actually sits, go deep on the suppliers carrying the most risk (typically five to seven), and identify what is moving against them right now.</p>
+      <p class="card-listhead">You leave with:</p>
       <ul>
-        <li>Your exposure mapped to your actual vendors and trade lanes</li>
-        <li>A working AI monitoring system built around your operation</li>
-        <li>A 30-day action plan with specific next steps and owners</li>
+        <li>Exposure Summary: every supplier you gave us, flagged red, amber, or green, with the single point of failure named</li>
+        <li>30-Day Forward Scan: what is coming, which supplier it touches, when the window closes given your PO lead time, and the levers available to you</li>
+        <li>Two pages. Dated. Written to survive being forwarded to someone who was not on the call.</li>
       </ul>
-      <p style="font-family:'EB Garamond',Georgia,serif;font-size:1.2rem;color:#F8F7F3;line-height:1.55;margin-top:1.5rem;margin-bottom:1.5rem;">Not a template. Not a generic risk report. Built entirely around your operation.</p>
-      <a href="#contact" class="btn-p" style="background:#C49A4A;color:#0B315A;">Apply for a Session</a>
+      <div class="founding">
+        <span class="founding-tag">Founding client terms &middot; First three clients</span>
+        <p>For the first three clients, the $1,500 is credited against the first month of Monthly Monitoring if signed within 30 days of delivery. If you continue, the session was free.</p>
+      </div>
+      <a href="#contact" class="btn-p">Book a Session</a>
+      <p class="card-fine">Starts with a 20-minute call. Intake call Monday. Delivery session Friday. Payment after the call, not before.</p>
     </div>
+
+    <!-- Card 2: Monthly Monitoring -->
     <div class="card">
-      <span class="card-tag">Start here</span>
-      <h3>Supply Chain Intelligence Brief</h3>
-      <div class="card-price" style="color:#C49A4A;">$349 <span>/ month</span></div>
-      <div class="card-delivery">Founding Rate &mdash; Closes June 26th</div>
-      <p class="f-fine" style="margin-top:0.5rem;margin-bottom:1.25rem;color:rgba(9,30,56,0.4);">Then $499/mo &middot; Standard rate $599/mo</p>
-      <p class="card-desc">Every month, 3&ndash;5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure. Not what happened. What it means for your sourcing, logistics, and vendor relationships next month.</p>
+      <span class="card-tag">After the session</span>
+      <h3>Monthly Monitoring</h3>
+      <div class="card-price card-price-solo">$2,500 <span>/ month</span></div>
+      <p class="card-desc">Your mapped supplier base, rescanned every month against current conditions. What moved, what did not, what is now in motion, and what it means for the orders you place next. If something breaks against your exposure between cycles, you hear from us within two business days.</p>
       <ul>
-        <li>Stop explaining it after the fact. Forward-looking intelligence so you're adjusting before the disruption hits, not after you've absorbed the cost.</li>
-        <li>Built for your exposure. Asia and Latin America supply chains, written for the person making procurement decisions &mdash; not a risk committee.</li>
-        <li>Severity-flagged. Low / Elevated / High so you know where to focus first.</li>
-        <li>Decision-ready. Every flashpoint answers: what do I do differently on Monday?</li>
+        <li>Monthly two-page scan and a 45 to 60 minute call</li>
+        <li>At least one exposure node sized against your own spend, lead times, and safety stock each cycle</li>
+        <li>Two business day interrupt coverage</li>
+        <li>Quarterly full re-score of your exposure map</li>
+        <li>Decision log, maintained by Strabo, shared with you</li>
+      </ul>
+      <p class="card-terms">90-day initial term, then month to month. 30 days notice. Founding clients hold $2,500 for as long as the retainer runs continuously.</p>
+      <p class="card-prereq">Requires a completed Exposure Session</p>
+      <a href="#contact" class="btn-p">Ask About Monitoring</a>
+    </div>
+
+    <!-- Card 3: Supply Chain Intelligence Brief -->
+    <!-- NOV 1: tag to "Standard rate", price to $349, price sub to "/ month", remove founding box, fine print to next issue date (November 3) -->
+    <div class="card">
+      <span class="card-tag">First issue October 6</span>
+      <h3>Supply Chain Intelligence Brief</h3>
+      <div class="card-price">$299 <span>/ month &middot; Founding rate</span></div>
+      <div class="card-delivery">First Tuesday of each month &middot; 7am ET</div>
+      <p class="card-desc">Every month, 3 to 5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure. Not what happened. What it means for your sourcing, logistics, and vendor relationships next month.</p>
+      <ul>
+        <li>Forward-looking. You adjust before the disruption lands, not after you have absorbed the cost.</li>
+        <li>Written for the person placing the order, not a risk committee.</li>
+        <li>Severity-flagged: Low, Elevated, High.</li>
+        <li>Every flashpoint answers one question: what do I do differently on Monday?</li>
       </ul>
       <div class="founding founding-light">
-        <span class="founding-tag">Founding Member Rate &mdash; Closes June 26th</span>
-        <p>$349/month for your first 3 months, then $499/month. Standard rate after June 26th is $599/month. Cancel anytime. If you cancel, you lose the rate.</p>
-        <span class="founding-tag">Founding members also receive:</span>
-        <p>Priority booking for the Geopolitical Exposure Session &mdash; founding members get first pick of available dates before the general waitlist opens.</p>
+        <span class="founding-tag">Founding rate &middot; Through October 31</span>
+        <p>$299/month, locked for as long as you stay subscribed. Standard rate is $349/month from November 1. Founding subscribers receive Issue 01 regardless of when in October they join. Cancel anytime. If you cancel, you lose the rate.</p>
       </div>
-      <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" class="btn-p" style="background:#C49A4A;color:#0B315A;" target="_blank" rel="noopener noreferrer">Get the Brief</a>
-      <p class="f-fine" style="margin-top:1rem;color:rgba(9,30,56,0.35);">Founding rate closes June 26th. Price increases to $599/month after.</p>
+      <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" class="btn-p" target="_blank" rel="noopener noreferrer">Get the Brief</a>
+      <p class="card-fine">Issue 01 ships Tuesday, October 6.</p>
     </div>
+
   </div>
 </section>
 
@@ -526,7 +577,7 @@ footer {
     <div class="step">
       <div class="step-n">04</div>
       <div class="step-t">We Deliver</div>
-      <p class="step-b">The intelligence reaches you as a monthly brief, a hands-on working session, or both. The format depends on what you need. The standard doesn't change.</p>
+      <p class="step-b">The intelligence reaches you as a one-week working session, ongoing monthly monitoring, or a monthly brief. The format depends on where your exposure is. The standard doesn't change.</p>
     </div>
     <div class="step">
       <div class="step-n">05</div>
@@ -550,10 +601,10 @@ footer {
       </div>
     </div>
     <div class="about-r">
-      <p>When tariffs hit VF Corp, I was the person rebuilding supply plans around disrupted cost structures and shifting lead times. Four years as a supply planning forecaster at one of the most Asia-exposed apparel supply chains in the world. I saw firsthand what reactive intelligence looks like at scale. It was expensive. And it was entirely preventable.</p>
+      <p>Seven years in supply chain operations. At VF Corp I was a buyer and planner for Icebreaker: global supplier buying, delivery into US and Canadian distribution centers, the air freight budget, and supply risk across one of the most Asia-exposed apparel supply chains in the world. Before that, inventory management at Airbus. When tariffs hit, I was the one rebuilding supply plans around new cost structures and shifting lead times. I saw what reactive intelligence looks like at scale. It was expensive. And it was entirely preventable.</p>
       <p>Strabo Insight was built on that experience. <strong>Operations and procurement leaders at small to mid-size US manufacturers are making sourcing decisions every day without the geopolitical context that would change those decisions.</strong> The intelligence exists. Now it's built for them.</p>
       <p>If your supply chain touches Asia or Latin America and you're operating on reactive intelligence, this was built for your situation.</p>
-      <p class="sig">&mdash; Chase, Founder</p>
+      <p class="sig">Chase, Founder</p>
     </div>
   </div>
 </section>
@@ -577,11 +628,11 @@ footer {
 
 <!-- CONTACT -->
 <section class="contact-sec" id="contact">
-  <div class="lbl reveal">Get in Touch</div>
+  <div class="lbl reveal">Book a Session</div>
   <div class="contact reveal">
     <div>
       <h2>Tell us about your supply chain.</h2>
-      <p>Drop your name, company, and the geopolitical risk keeping you up at night. We'll respond within 24 hours.</p>
+      <p>Every engagement starts with a 20-minute call. Fill this out and we'll set it up within 24 hours. The call is where we confirm fit, answer your questions, and book the session. No payment until after we talk.</p>
       <p class="c-email">chase@straboinsight.com</p>
     </div>
     <form class="c-form" name="contact" method="POST" data-netlify="true" action="/thanks">
@@ -595,16 +646,24 @@ footer {
         <input type="text" id="company" name="company" placeholder="Company name" autocomplete="organization">
       </div>
       <div class="f-field">
+        <label for="role">Role</label>
+        <input type="text" id="role" name="role" placeholder="VP Operations, Procurement Manager, Supply Chain Director" autocomplete="organization-title">
+      </div>
+      <div class="f-field">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="your@company.com" required autocomplete="email">
       </div>
       <div class="f-field">
-        <label for="concern">What's your biggest supply chain concern right now?</label>
+        <label for="sourcing">Where do you source from?</label>
+        <input type="text" id="sourcing" name="sourcing" placeholder="China, Vietnam, Mexico, Brazil, other">
+      </div>
+      <div class="f-field">
+        <label for="concern">What's your biggest supply chain exposure right now?</label>
         <textarea id="concern" name="concern" placeholder="Tell us what's on your radar..."></textarea>
       </div>
       <div>
-        <button type="submit" class="btn-p">Send Message</button>
-        <p class="f-fine">We respond within 24 hours. No sales calls unless you ask.</p>
+        <button type="submit" class="btn-p">Request a Call</button>
+        <p class="f-fine">We respond within 24 hours. If the session isn't the right fit, we'll say so on the call.</p>
       </div>
     </form>
   </div>
@@ -615,22 +674,24 @@ footer {
   <div class="closing-inner">
     <div class="lbl reveal" style="justify-content:center;">Ready to Start</div>
     <h2 class="reveal">Stop reacting.<br><em style="color:#C49A4A;">Start anticipating.</em></h2>
-    <p class="reveal">Choose the intelligence product that fits where you are right now.</p>
+    <p class="reveal">Choose where to start.</p>
     <div class="closing-offers" style="max-width:100%;margin:0 auto;align-items:stretch;">
-      <div style="border:0.5px solid rgba(122,143,160,0.14);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto 1fr;gap:1.5rem;">
-        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#F7F4EE;">Supply Chain Intelligence Brief</h3>
-        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#C49A4A;line-height:1;">$349 <span style="font-family:'DM Sans',sans-serif;font-size:0.75rem;color:rgba(196,154,74,0.4);">/ month</span></div>
+      <div style="border:0.5px solid rgba(122,143,160,0.14);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;">
+        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#F7F4EE;">Geopolitical Exposure Session</h3>
+        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#C49A4A;line-height:1;">$1,500</div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(247,244,238,0.6);line-height:1.75;">Four days of research. Two pages you can act on. Credited against your first month of monitoring if you continue.</p>
         <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:0.75rem;">
-          <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" target="_blank" rel="noopener noreferrer" class="btn-p">Get the Brief</a>
-          <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,154,74,0.6);">Founding rate — closes June 26th</p>
-          <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,154,74,0.6);">Then $499/mo · Standard rate $599/mo</p>
+          <a href="#contact" class="btn-p">Book a Session</a>
+          <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,154,74,0.6);">Starts with a 20-minute call</p>
         </div>
       </div>
-      <div style="background:#EDE8DE;border:0.5px solid rgba(9,30,56,0.11);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto 1fr;gap:1.5rem;color:#091E38;">
-        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#091E38;">Geopolitical Exposure Session</h3>
-        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(9,30,56,0.65);line-height:1.75;">You leave with your top risks mapped, a monitoring system built, and a 30-day action plan. Scoped to your operation, not a template. Founding members get priority booking ahead of the general waitlist.</p>
+      <!-- NOV 1: price to $349, line to "Next issue November 3. Standard rate." -->
+      <div style="background:#EDE8DE;border:0.5px solid rgba(9,30,56,0.11);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;color:#091E38;">
+        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#091E38;">Supply Chain Intelligence Brief</h3>
+        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#091E38;line-height:1;">$299 <span style="font-family:'DM Sans',sans-serif;font-size:0.75rem;color:rgba(9,30,56,0.4);">/ month</span></div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(9,30,56,0.65);line-height:1.75;">First issue October 6. Founding rate through October, locked for as long as you stay subscribed.</p>
         <div style="display:flex;flex-direction:column;justify-content:flex-end;">
-          <a href="#contact" class="btn-s" style="border-color:rgba(9,30,56,0.22);color:#091E38;">Apply for a Session</a>
+          <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" target="_blank" rel="noopener noreferrer" class="btn-s" style="border-color:rgba(9,30,56,0.22);color:#091E38;">Get the Brief</a>
         </div>
       </div>
     </div>
@@ -648,8 +709,8 @@ footer {
   <div class="f-links">
     <a href="https://www.linkedin.com/company/strabo-insight" target="_blank" rel="noopener">LinkedIn</a>
     <a href="#newsletter">The Strabo Signal</a>
-    <a href="#brief">The Brief</a>
-    <a href="#contact">Get in Touch</a>
+    <a href="#brief">Work With Us</a>
+    <a href="#contact">Book a Session</a>
   </div>
   <p class="f-copy">&copy; 2026 Strabo Insight &nbsp;&middot;&nbsp; chase@straboinsight.com</p>
 </footer>
