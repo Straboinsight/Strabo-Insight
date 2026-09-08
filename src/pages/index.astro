@@ -179,6 +179,8 @@ import GlobeViz from "../components/GlobeViz.astro";
   --paper-warm: #EDE8DE;
   --bd:         rgba(122,143,160,0.14);
   --bdl:        rgba(9,30,56,0.11);
+  --fine-on-paper: rgba(9,30,56,0.55);     /* mono fine print on paper / paper-warm */
+  --fine-on-navy:  rgba(122,143,160,0.6);  /* mono fine print on navy */
   --fh:         'EB Garamond', Georgia, serif;
   --fb:         'DM Sans', system-ui, sans-serif;
   --fm:         'Space Mono', monospace;
@@ -338,7 +340,7 @@ nav ul a:hover { color: var(--paper); }
 .bento-item:hover { background: rgba(196,154,74,0.03); }
 .bento-n { font-family: var(--fh); font-size: 4.5rem; font-weight: 500; color: var(--gold); line-height: 1; margin-bottom: 0.75rem; }
 .bento-l { font-size: 0.82rem; color: rgba(247,244,238,0.5); line-height: 1.65; margin-bottom: 0.6rem; }
-.bento-src { font-family: var(--fm); font-size: 0.55rem; color: rgba(122,143,160,0.6); letter-spacing: 0.08em; line-height: 1.7; }
+.bento-src { font-family: var(--fm); font-size: 0.55rem; color: var(--fine-on-navy); letter-spacing: 0.08em; line-height: 1.7; }
 .bento-src a { color: inherit; text-decoration: none; border-bottom: 0.5px solid rgba(122,143,160,0.3); transition: color 0.2s, border-color 0.2s; }
 .bento-src a:hover { color: var(--gold); border-color: var(--gold-line); }
 
@@ -349,13 +351,13 @@ nav ul a:hover { color: var(--paper); }
 .offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
 .card { border: 0.5px solid var(--bdl); border-radius: 2px; padding: 2.25rem; background: var(--paper-warm); transition: box-shadow 0.3s; display: flex; flex-direction: column; }
 .card > .btn-p { align-self: flex-start; margin-top: auto; }
-.card-prereq { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(9,30,56,0.55); margin-bottom: 2rem; }
-.card-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(9,30,56,0.55); margin-top: 1rem; line-height: 1.6; }
-.card.feat .card-fine { color: rgba(122,143,160,0.75); }
+.card-prereq { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fine-on-paper); margin-bottom: 2rem; }
+.card-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: var(--fine-on-paper); margin-top: 1rem; line-height: 1.6; }
+.card.feat .card-fine { color: var(--fine-on-navy); }
 .card:hover { box-shadow: 0 12px 40px rgba(9,30,56,0.08); }
 .card.feat { background: var(--navy); border-color: var(--gold-line); color: var(--paper); position: relative; overflow: hidden; }
 .card.feat::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--gold), rgba(196,154,74,0.2)); }
-.card-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(9,30,56,0.55); display: block; margin-bottom: 1.75rem; }
+.card-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fine-on-paper); display: block; margin-bottom: 1.75rem; }
 .card.feat .card-tag { color: var(--gold); opacity: 0.8; }
 .card h3 { font-family: var(--fh); font-size: 1.75rem; font-weight: 500; margin-bottom: 0.75rem; line-height: 1.15; }
 .card-price { font-family: var(--fh); font-size: 2.75rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; line-height: 1; }
@@ -366,11 +368,11 @@ nav ul a:hover { color: var(--paper); }
 .card-price span { font-family: var(--fb); font-size: 0.78rem; font-weight: 400; color: rgba(9,30,56,0.4); }
 .card.feat .card-price { color: var(--gold); }
 .card.feat .card-price span { color: rgba(196,154,74,0.5); }
-.card-delivery { font-family: var(--fm); font-size: 0.6rem; color: rgba(9,30,56,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.card-delivery { font-family: var(--fm); font-size: 0.6rem; color: var(--fine-on-paper); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; }
 .card.feat .card-delivery { color: rgba(196,154,74,0.75); }
 .card-desc { font-size: 0.92rem; line-height: 1.75; margin-bottom: 2rem; color: rgba(9,30,56,0.62); }
 .card.feat .card-desc { color: rgba(247,244,238,0.62); }
-.card-listhead { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(9,30,56,0.45); margin-bottom: -0.75rem; }
+.card-listhead { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fine-on-paper); margin-bottom: -0.75rem; }
 .card.feat .card-listhead { color: rgba(196,154,74,0.7); }
 .card ul { list-style: none; margin-bottom: 2rem; border-top: 0.5px solid var(--bdl); padding-top: 1.5rem; }
 .card.feat ul { border-top-color: var(--bd); }
@@ -382,7 +384,7 @@ nav ul a:hover { color: var(--paper); }
 .founding-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
 .founding p { font-size: 0.82rem; color: rgba(247,244,238,0.62); line-height: 1.65; }
 .founding-light { border-color: rgba(9,30,56,0.12); background: rgba(9,30,56,0.04); }
-.founding-light .founding-tag { color: rgba(9,30,56,0.6); }
+.founding-light .founding-tag { color: var(--fine-on-paper); }
 .founding-light p { color: rgba(9,30,56,0.62); }
 
 /* ─── HOW IT WORKS ─── */
@@ -423,7 +425,7 @@ nav ul a:hover { color: var(--paper); }
 .nl-form { margin-bottom: 1rem; }
 .nl-form a { display: inline-block; background: var(--gold); color: var(--navy-deep); border: none; padding: 1rem 1.5rem; font-family: var(--fm); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s; text-decoration: none; border-radius: 1px; }
 .nl-form a:hover { background: #d4aa5a; }
-.nl-fine { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(122,143,160,0.6); }
+.nl-fine { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fine-on-navy); }
 
 /* ─── CONTACT ─── */
 .contact-sec { padding: 8rem 3rem; border-bottom: 0.5px solid var(--bd); }
@@ -445,7 +447,7 @@ nav ul a:hover { color: var(--paper); }
 .f-field input:focus, .f-field textarea:focus, .f-field select:focus { border-color: var(--gold); background: rgba(196,154,74,0.04); }
 .f-field input::placeholder, .f-field textarea::placeholder { color: rgba(122,143,160,0.5); }
 .f-field textarea { resize: vertical; min-height: 130px; }
-.f-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(122,143,160,0.6); margin-top: 0.75rem; line-height: 1.6; }
+.f-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: var(--fine-on-navy); margin-top: 0.75rem; line-height: 1.6; }
 
 /* ─── CLOSING CTA ─── */
 /* ─── CLOSING CTA ─── */
@@ -455,20 +457,26 @@ nav ul a:hover { color: var(--paper); }
 .closing h2 { font-family: var(--fh); font-size: clamp(3rem,5vw,5.5rem); font-weight: 500; line-height: 1.02; margin-bottom: 1.25rem; }
 .closing h2 em { font-style: normal; color: var(--gold); }
 .closing p { font-size: 0.97rem; color: rgba(247,244,238,0.5); margin-bottom: 5rem; }
-.closing-offers { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; text-align: left; }
-.closing-card { border: 0.5px solid var(--bd); border-radius: 2px; padding: 2.75rem; transition: border-color 0.3s, background 0.3s; }
+.closing-offers { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; text-align: left; align-items: stretch; }
+.closing-card { display: flex; flex-direction: column; gap: 1rem; border: 0.5px solid rgba(122,143,160,0.3); border-radius: 2px; padding: 2.5rem; transition: border-color 0.3s, background 0.3s; }
 .closing-card:hover { border-color: var(--gold-line); background: rgba(196,154,74,0.025); }
-.closing-card h3 { font-family: var(--fh); font-size: 1.65rem; font-weight: 500; margin-bottom: 0.5rem; }
-.closing-card .price { font-family: var(--fh); font-size: 2.25rem; font-weight: 500; color: var(--gold); margin-bottom: 1.75rem; line-height: 1; }
-.closing-card .price span { font-family: var(--fb); font-size: 0.75rem; color: rgba(196,154,74,0.4); }
+.closing-card h3 { font-family: var(--fh); font-size: 1.65rem; font-weight: 500; line-height: 1.2; color: var(--paper); margin-bottom: -0.5rem; }
+.closing-card .price { font-family: var(--fh); font-size: 2.25rem; font-weight: 500; color: var(--gold); line-height: 1; margin-bottom: -0.5rem; }
+.closing-card .price span { font-family: var(--fb); font-size: 0.75rem; color: rgba(196,154,74,0.6); }
+.closing-card .closing-line { font-family: var(--fb); font-size: 0.85rem; color: rgba(247,244,238,0.6); line-height: 1.75; margin: 0; }
+.closing-card .closing-cta { margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem; padding-top: 1rem; }
+.closing-card .closing-cta .btn-p, .closing-card .closing-cta .btn-s { align-self: flex-start; }
+.closing-card .closing-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fine-on-navy); line-height: 1.6; margin: 0; }
 .closing-card.feat { background: var(--paper-warm); border-color: var(--bdl); color: var(--navy); }
 .closing-card.feat:hover { border-color: rgba(9,30,56,0.25); background: var(--paper); }
 .closing-card.feat h3 { color: var(--navy); }
 .closing-card.feat .price { color: var(--navy); }
-.closing-card.feat .price span { color: rgba(9,30,56,0.4); }
+.closing-card.feat .price span { color: rgba(9,30,56,0.55); }
+.closing-card.feat .closing-line { color: rgba(9,30,56,0.65); }
+.closing-card.feat .closing-fine { color: var(--fine-on-paper); }
 
 /* ─── DIVIDER ─── */
-.rule { font-family: var(--fm); font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(170,179,184,0.4); text-align: center; padding: 1.5rem; background: #0B315A; border-top: 0.5px solid rgba(170,179,184,0.14); border-bottom: 0.5px solid rgba(170,179,184,0.14); }
+.rule { font-family: var(--fm); font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fine-on-navy); text-align: center; padding: 1.5rem; background: #0B315A; border-top: 0.5px solid rgba(170,179,184,0.14); border-bottom: 0.5px solid rgba(170,179,184,0.14); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -480,9 +488,9 @@ footer {
 .f-logo .lg-t { font-family: var(--fh); font-size: 1.1rem; font-weight: 500; letter-spacing: 0.12em; color: var(--paper); line-height: 1; }
 .f-logo .lg-b { font-family: var(--fb); font-size: 0.42rem; font-weight: 600; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; line-height: 1; }
 .f-links { display: flex; gap: 1.75rem; }
-.f-links a { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(122,143,160,0.35); text-decoration: none; transition: color 0.2s; }
+.f-links a { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fine-on-navy); text-decoration: none; transition: color 0.2s; }
 .f-links a:hover { color: var(--gold); }
-.f-copy { font-family: var(--fm); font-size: 0.55rem; color: rgba(122,143,160,0.2); letter-spacing: 0.08em; }
+.f-copy { font-family: var(--fm); font-size: 0.55rem; color: var(--fine-on-navy); letter-spacing: 0.08em; }
 
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -669,12 +677,16 @@ footer {
         <li>30-Day Forward Scan: what is coming, which supplier it touches, when the window closes given your PO lead time, and the levers available to you</li>
         <li>Two pages. Dated. Written to survive being forwarded to someone who was not on the call.</li>
       </ul>
+      <div class="founding">
+        <span class="founding-tag">The Week</span>
+        <p>Monday intake call. Tuesday through Thursday research. Friday delivery session.</p>
+      </div>
       <div class="card-cta-price">
         <div class="card-price">$1,500</div>
         <div class="card-delivery">Paid at booking. Payment after the call, not before.</div>
       </div>
       <a href="#contact" class="btn-p">Book a Session</a>
-      <p class="card-fine">Starts with a 30-minute call. Intake call Monday. Delivery session Friday.</p>
+      <p class="card-fine">Starts with a 30-minute call.</p>
     </div>
 
     <!-- Card 3: Monthly Monitoring -->
@@ -825,23 +837,24 @@ footer {
     <div class="lbl reveal" style="justify-content:center;">Ready to Start</div>
     <h2 class="reveal">Stop reacting.<br><em style="color:#C49A4A;">Start anticipating.</em></h2>
     <p class="reveal">Choose where to start.</p>
-    <div class="closing-offers" style="max-width:100%;margin:0 auto;align-items:stretch;">
-      <div style="background:#EDE8DE;border:0.5px solid rgba(9,30,56,0.11);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;color:#091E38;">
-        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#091E38;">Geopolitical Exposure Session</h3>
-        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(9,30,56,0.65);line-height:1.75;">Four days of research. Two pages you can act on. Starts with a 30-minute call.</p>
-        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#091E38;line-height:1;">$1,500</div>
-        <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:0.75rem;">
+    <div class="closing-offers">
+      <div class="closing-card feat">
+        <h3>Geopolitical Exposure Session</h3>
+        <div class="price">$1,500</div>
+        <p class="closing-line">Four days of research. Two pages you can act on. Starts with a 30-minute call.</p>
+        <div class="closing-cta">
           <a href="#contact" class="btn-p">Book a Session</a>
-          <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(9,30,56,0.55);">Payment after the call, not before.</p>
+          <p class="closing-fine">Payment after the call, not before.</p>
         </div>
       </div>
-      <!-- NOV 1: price to $349, line to "Next issue November 3. Standard rate." -->
-      <div style="border:0.5px solid rgba(122,143,160,0.3);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;">
-        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#F7F4EE;">Supply Chain Intelligence Brief</h3>
-        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#C49A4A;line-height:1;">$299 <span style="font-family:'DM Sans',sans-serif;font-size:0.75rem;color:rgba(196,154,74,0.6);">/ month</span></div>
-        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(247,244,238,0.6);line-height:1.75;">First issue October 6. Founding rate through October, locked for as long as you stay subscribed.</p>
-        <div style="display:flex;flex-direction:column;justify-content:flex-end;">
+      <!-- NOV 1: price to $349, line to "Next issue November 3. Standard rate.", remove fine print -->
+      <div class="closing-card">
+        <h3>Supply Chain Intelligence Brief</h3>
+        <div class="price">$299 <span>/ month</span></div>
+        <p class="closing-line">First issue October 6. Founding rate locked while you stay subscribed.</p>
+        <div class="closing-cta">
           <a href="https://buy.stripe.com/8x28wQ4HAedg5W99Vg77O01" target="_blank" rel="noopener noreferrer" class="btn-s">Get the Brief</a>
+          <p class="closing-fine">Standard rate $349/month from November 1.</p>
         </div>
       </div>
     </div>
