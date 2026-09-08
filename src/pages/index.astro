@@ -360,6 +360,9 @@ nav ul a:hover { color: var(--paper); }
 .card h3 { font-family: var(--fh); font-size: 1.75rem; font-weight: 500; margin-bottom: 0.75rem; line-height: 1.15; }
 .card-price { font-family: var(--fh); font-size: 2.75rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; line-height: 1; }
 .card-price-solo { margin-bottom: 1.75rem; }
+.card-cta-price { margin-top: auto; }
+.card-cta-price .card-delivery { margin-bottom: 1.25rem; }
+.card-cta-price + .btn-p { margin-top: 0; }
 .card-price span { font-family: var(--fb); font-size: 0.78rem; font-weight: 400; color: rgba(9,30,56,0.4); }
 .card.feat .card-price { color: var(--gold); }
 .card.feat .card-price span { color: rgba(196,154,74,0.5); }
@@ -579,7 +582,7 @@ footer {
     <h1>Your supply chain<br>has <em>blind spots.</em><br>We find them.</h1>
     <p class="hero-sub">Tariffs shift. Ports close. Policies change overnight. Most operations leaders find out too late. Strabo Insight puts the intelligence in front of you first.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-p">Book an Exposure Session &middot; $1,500</a>
+      <a href="#contact" class="btn-p">Book an Exposure Session</a>
       <!-- NOV 1: change to "Get the Brief · $349/mo" -->
       <a href="https://buy.stripe.com/8x28wQ4HAedg5W99Vg77O01" class="btn-s" target="_blank" rel="noopener noreferrer">Get the Brief &middot; $299/mo</a>
     </div>
@@ -659,8 +662,6 @@ footer {
     <div class="card feat">
       <span class="card-tag">Start here &middot; One engagement per week</span>
       <h3>Geopolitical Exposure Session</h3>
-      <div class="card-price">$1,500</div>
-      <div class="card-delivery">Paid at booking</div>
       <p class="card-desc">Four days of research on your supply chain, delivered in one working session. You send your supplier base: countries, ports, lead times, dependencies. We map where your geopolitical exposure actually sits, go deep on the suppliers carrying the most risk (typically five to seven), and identify what is moving against them right now.</p>
       <p class="card-listhead">You leave with:</p>
       <ul>
@@ -668,8 +669,12 @@ footer {
         <li>30-Day Forward Scan: what is coming, which supplier it touches, when the window closes given your PO lead time, and the levers available to you</li>
         <li>Two pages. Dated. Written to survive being forwarded to someone who was not on the call.</li>
       </ul>
+      <div class="card-cta-price">
+        <div class="card-price">$1,500</div>
+        <div class="card-delivery">Paid at booking. Payment after the call, not before.</div>
+      </div>
       <a href="#contact" class="btn-p">Book a Session</a>
-      <p class="card-fine">Starts with a 30-minute call. Intake call Monday. Delivery session Friday. Payment after the call, not before.</p>
+      <p class="card-fine">Starts with a 30-minute call. Intake call Monday. Delivery session Friday.</p>
     </div>
 
     <!-- Card 3: Monthly Monitoring -->
@@ -823,8 +828,8 @@ footer {
     <div class="closing-offers" style="max-width:100%;margin:0 auto;align-items:stretch;">
       <div style="background:#EDE8DE;border:0.5px solid rgba(9,30,56,0.11);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;color:#091E38;">
         <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#091E38;">Geopolitical Exposure Session</h3>
-        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#091E38;line-height:1;">$1,500</div>
         <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(9,30,56,0.65);line-height:1.75;">Four days of research. Two pages you can act on. Starts with a 30-minute call.</p>
+        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#091E38;line-height:1;">$1,500</div>
         <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:0.75rem;">
           <a href="#contact" class="btn-p">Book a Session</a>
           <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(9,30,56,0.55);">Payment after the call, not before.</p>
