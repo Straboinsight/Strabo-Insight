@@ -38,7 +38,7 @@ import GlobeViz from "../components/GlobeViz.astro";
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="757">
-<meta property="og:image:alt" content="Strabo Insight — supply chain geopolitical intelligence platform">
+<meta property="og:image:alt" content="Strabo Insight | Supply chain geopolitical intelligence">
 <meta property="og:locale" content="en_US">
 
 <!-- Twitter / X -->
@@ -46,7 +46,7 @@ import GlobeViz from "../components/GlobeViz.astro";
 <meta name="twitter:title" content="Strabo Insight | Geopolitical Intelligence for US Supply Chain Operators">
 <meta name="twitter:description" content="Exposure Sessions, monthly monitoring, and a monthly brief that turn global flashpoints into procurement decisions for US manufacturers.">
 <meta name="twitter:image" content="https://straboinsight.com/home.png">
-<meta name="twitter:image:alt" content="Strabo Insight — supply chain geopolitical intelligence platform">
+<meta name="twitter:image:alt" content="Strabo Insight | Supply chain geopolitical intelligence">
 
 <!-- Structured Data: Organization, WebSite, Services -->
 <script type="application/ld+json">
@@ -102,7 +102,7 @@ import GlobeViz from "../components/GlobeViz.astro";
         "@type": "BusinessAudience",
         "audienceType": "US manufacturers and supply chain operators with Asia or Latin America exposure"
       },
-      "description": "Monthly intelligence brief covering 3–5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure.",
+      "description": "Monthly intelligence brief covering 3 to 5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure.",
       "offers": {
         "@type": "Offer",
         "price": "299",
@@ -124,7 +124,36 @@ import GlobeViz from "../components/GlobeViz.astro";
       "serviceType": "Supply chain risk consulting engagement",
       "provider": { "@id": "https://straboinsight.com/#organization" },
       "areaServed": "United States",
-      "description": "Hands-on session that maps your specific vendors, regions, and trade lanes, identifies top geopolitical risks, and builds an AI monitoring system tailored to your operation, plus a 30-day action plan."
+      "description": "Four days of research on your supplier base delivered in one working session: an Exposure Summary flagging every supplier red, amber, or green, and a 30-Day Forward Scan of what is moving against them.",
+      "offers": {
+        "@type": "Offer",
+        "price": "1500",
+        "priceCurrency": "USD",
+        "url": "https://straboinsight.com/#brief",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://straboinsight.com/#monthly-monitoring",
+      "name": "Monthly Monitoring",
+      "serviceType": "Ongoing supply chain geopolitical risk monitoring",
+      "provider": { "@id": "https://straboinsight.com/#organization" },
+      "areaServed": "United States",
+      "description": "Your mapped supplier base rescanned every month against current conditions, with a two-page scan, a monthly call, two business day interrupt coverage, and a quarterly re-score of your exposure map. Requires a completed Exposure Session.",
+      "offers": {
+        "@type": "Offer",
+        "price": "2500",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "2500",
+          "priceCurrency": "USD",
+          "unitText": "MONTH"
+        },
+        "url": "https://straboinsight.com/#brief",
+        "availability": "https://schema.org/InStock"
+      }
     }
   ]
 }
@@ -309,7 +338,9 @@ nav ul a:hover { color: var(--paper); }
 .bento-item:hover { background: rgba(196,154,74,0.03); }
 .bento-n { font-family: var(--fh); font-size: 4.5rem; font-weight: 500; color: var(--gold); line-height: 1; margin-bottom: 0.75rem; }
 .bento-l { font-size: 0.82rem; color: rgba(247,244,238,0.5); line-height: 1.65; margin-bottom: 0.6rem; }
-.bento-src { font-family: var(--fm); font-size: 0.55rem; color: rgba(122,143,160,0.3); letter-spacing: 0.08em; }
+.bento-src { font-family: var(--fm); font-size: 0.55rem; color: rgba(122,143,160,0.6); letter-spacing: 0.08em; line-height: 1.7; }
+.bento-src a { color: inherit; text-decoration: none; border-bottom: 0.5px solid rgba(122,143,160,0.3); transition: color 0.2s, border-color 0.2s; }
+.bento-src a:hover { color: var(--gold); border-color: var(--gold-line); }
 
 /* ─── OFFERS ─── */
 .offer-head { max-width: 640px; margin-bottom: 4.5rem; }
@@ -318,14 +349,13 @@ nav ul a:hover { color: var(--paper); }
 .offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
 .card { border: 0.5px solid var(--bdl); border-radius: 2px; padding: 2.25rem; background: var(--paper-warm); transition: box-shadow 0.3s; display: flex; flex-direction: column; }
 .card > .btn-p { align-self: flex-start; margin-top: auto; }
-.card-terms { font-size: 0.8rem; color: rgba(9,30,56,0.55); line-height: 1.6; margin-bottom: 0.75rem; }
-.card-prereq { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(9,30,56,0.4); margin-bottom: 2rem; }
-.card-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(9,30,56,0.35); margin-top: 1rem; line-height: 1.6; }
-.card.feat .card-fine { color: rgba(122,143,160,0.45); }
+.card-prereq { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(9,30,56,0.55); margin-bottom: 2rem; }
+.card-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(9,30,56,0.55); margin-top: 1rem; line-height: 1.6; }
+.card.feat .card-fine { color: rgba(122,143,160,0.75); }
 .card:hover { box-shadow: 0 12px 40px rgba(9,30,56,0.08); }
 .card.feat { background: var(--navy); border-color: var(--gold-line); color: var(--paper); position: relative; overflow: hidden; }
 .card.feat::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--gold), rgba(196,154,74,0.2)); }
-.card-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(9,30,56,0.4); display: block; margin-bottom: 1.75rem; }
+.card-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(9,30,56,0.55); display: block; margin-bottom: 1.75rem; }
 .card.feat .card-tag { color: var(--gold); opacity: 0.8; }
 .card h3 { font-family: var(--fh); font-size: 1.75rem; font-weight: 500; margin-bottom: 0.75rem; line-height: 1.15; }
 .card-price { font-family: var(--fh); font-size: 2.75rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; line-height: 1; }
@@ -333,8 +363,8 @@ nav ul a:hover { color: var(--paper); }
 .card-price span { font-family: var(--fb); font-size: 0.78rem; font-weight: 400; color: rgba(9,30,56,0.4); }
 .card.feat .card-price { color: var(--gold); }
 .card.feat .card-price span { color: rgba(196,154,74,0.5); }
-.card-delivery { font-family: var(--fm); font-size: 0.6rem; color: rgba(9,30,56,0.4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; }
-.card.feat .card-delivery { color: rgba(196,154,74,0.5); }
+.card-delivery { font-family: var(--fm); font-size: 0.6rem; color: rgba(9,30,56,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.card.feat .card-delivery { color: rgba(196,154,74,0.75); }
 .card-desc { font-size: 0.92rem; line-height: 1.75; margin-bottom: 2rem; color: rgba(9,30,56,0.62); }
 .card.feat .card-desc { color: rgba(247,244,238,0.62); }
 .card-listhead { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(9,30,56,0.45); margin-bottom: -0.75rem; }
@@ -349,7 +379,7 @@ nav ul a:hover { color: var(--paper); }
 .founding-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
 .founding p { font-size: 0.82rem; color: rgba(247,244,238,0.62); line-height: 1.65; }
 .founding-light { border-color: rgba(9,30,56,0.12); background: rgba(9,30,56,0.04); }
-.founding-light .founding-tag { color: rgba(9,30,56,0.45); }
+.founding-light .founding-tag { color: rgba(9,30,56,0.6); }
 .founding-light p { color: rgba(9,30,56,0.62); }
 
 /* ─── HOW IT WORKS ─── */
@@ -390,7 +420,7 @@ nav ul a:hover { color: var(--paper); }
 .nl-form { margin-bottom: 1rem; }
 .nl-form a { display: inline-block; background: var(--gold); color: var(--navy-deep); border: none; padding: 1rem 1.5rem; font-family: var(--fm); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s; text-decoration: none; border-radius: 1px; }
 .nl-form a:hover { background: #d4aa5a; }
-.nl-fine { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(122,143,160,0.25); }
+.nl-fine { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(122,143,160,0.6); }
 
 /* ─── CONTACT ─── */
 .contact-sec { padding: 8rem 3rem; border-bottom: 0.5px solid var(--bd); }
@@ -400,19 +430,19 @@ nav ul a:hover { color: var(--paper); }
 .c-email { margin-top: 1.75rem !important; font-family: var(--fm) !important; font-size: 0.68rem !important; color: var(--gold) !important; opacity: 0.65; letter-spacing: 0.1em; }
 .c-form { display: flex; flex-direction: column; gap: 1.1rem; }
 .f-field { display: flex; flex-direction: column; gap: 0.45rem; }
-.f-field label { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(122,143,160,0.5); }
+.f-field label { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(122,143,160,0.7); }
 .f-field input, .f-field textarea, .f-field select {
-  background: rgba(122,143,160,0.05); border: 0.5px solid rgba(122,143,160,0.18);
+  background: rgba(122,143,160,0.08); border: 1px solid rgba(122,143,160,0.45);
   border-radius: 1px; padding: 0.9rem 1.1rem; color: var(--paper);
   font-family: var(--fb); font-size: 0.9rem; outline: none;
   transition: border-color 0.2s, background 0.2s; width: 100%;
 }
 .f-field select { appearance: none; cursor: pointer; }
 .f-field select option { background: var(--navy); color: var(--paper); }
-.f-field input:focus, .f-field textarea:focus, .f-field select:focus { border-color: var(--gold-line); background: rgba(196,154,74,0.03); }
-.f-field input::placeholder, .f-field textarea::placeholder { color: rgba(122,143,160,0.28); }
+.f-field input:focus, .f-field textarea:focus, .f-field select:focus { border-color: var(--gold); background: rgba(196,154,74,0.04); }
+.f-field input::placeholder, .f-field textarea::placeholder { color: rgba(122,143,160,0.5); }
 .f-field textarea { resize: vertical; min-height: 130px; }
-.f-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(122,143,160,0.28); margin-top: 0.75rem; }
+.f-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(122,143,160,0.6); margin-top: 0.75rem; line-height: 1.6; }
 
 /* ─── CLOSING CTA ─── */
 /* ─── CLOSING CTA ─── */
@@ -496,6 +526,7 @@ footer {
   .prob-header { grid-template-columns: 1fr; gap: 3rem; }
   .offers { grid-template-columns: 1fr; }
   .card { padding: 3rem; }
+  .card.feat { order: -1; }
   .about { grid-template-columns: 1fr; gap: 3rem; }
   .about-l { position: static; }
   .about-r { border-left: none; padding-left: 0; border-top: 0.5px solid var(--bd); padding-top: 3rem; }
@@ -578,17 +609,17 @@ footer {
     <div class="bento-item">
       <div class="bento-n"><span class="count-up" data-target="90">90</span>%</div>
       <div class="bento-l">of tariff costs land on US importers. Foreign exporters absorb almost none of it.</div>
-      <div class="bento-src">Fajgelbaum and Khandelwal &nbsp;&middot;&nbsp; Brookings Papers on Economic Activity &nbsp;&middot;&nbsp; 2026</div>
+      <div class="bento-src"><a href="https://www.nber.org/papers/w35064" target="_blank" rel="noopener noreferrer">Fajgelbaum and Khandelwal &nbsp;&middot;&nbsp; Tariffs in 2025 &nbsp;&middot;&nbsp; Brookings Papers on Economic Activity &nbsp;&middot;&nbsp; 2026</a></div>
     </div>
     <div class="bento-item">
       <div class="bento-n"><span class="count-up" data-target="33">33</span>%</div>
       <div class="bento-l">rise in supply chain disruption alerts in 2025 across 200,000 suppliers. Geopolitical alerts alone rose 167%.</div>
-      <div class="bento-src">Achilles &nbsp;&middot;&nbsp; Global Supply Chain Disruption Analysis &nbsp;&middot;&nbsp; 2026</div>
+      <div class="bento-src"><a href="https://www.achilles.com/industry-insights/achilles-analysis-finds-global-supply-chain-disruption-accelerates-in-2025/" target="_blank" rel="noopener noreferrer">Achilles &nbsp;&middot;&nbsp; Global Supply Chain Disruption Analysis &nbsp;&middot;&nbsp; 2026</a></div>
     </div>
     <div class="bento-item">
-      <div class="bento-n">5 to 7</div>
-      <div class="bento-l">suppliers we go deep on in every Exposure Session. Selected by spend, replaceability, and lead time.</div>
-      <div class="bento-src">Strabo Insight</div>
+      <div class="bento-n"><span class="count-up" data-target="85">85</span>%</div>
+      <div class="bento-l">of supply chain risk incidents originate at tier 2 and below. Where visibility is thinnest.</div>
+      <div class="bento-src"><a href="https://sphera.com/company/news/amid-rising-global-supply-chain-risks-sphera-study-highlights-urgent-need-for-enhanced-n-tier-supply-chain-transparency/" target="_blank" rel="noopener noreferrer">Sphera &nbsp;&middot;&nbsp; N-Tier Transparency study &nbsp;&middot;&nbsp; 2025</a></div>
     </div>
   </div>
 </section>
@@ -602,52 +633,13 @@ footer {
   </div>
   <div class="offers reveal">
 
-    <!-- Card 1: Exposure Session (featured) -->
-    <div class="card feat">
-      <span class="card-tag">Start here &middot; One engagement per week</span>
-      <h3>Geopolitical Exposure Session</h3>
-      <div class="card-price">$1,500</div>
-      <div class="card-delivery">Paid at booking</div>
-      <p class="card-desc">Four days of research on your supply chain, delivered in one working session. You send your supplier base: countries, ports, lead times, dependencies. We map where your geopolitical exposure actually sits, go deep on the suppliers carrying the most risk (typically five to seven), and identify what is moving against them right now.</p>
-      <p class="card-listhead">You leave with:</p>
-      <ul>
-        <li>Exposure Summary: every supplier you gave us, flagged red, amber, or green, with the single point of failure named</li>
-        <li>30-Day Forward Scan: what is coming, which supplier it touches, when the window closes given your PO lead time, and the levers available to you</li>
-        <li>Two pages. Dated. Written to survive being forwarded to someone who was not on the call.</li>
-      </ul>
-      <div class="founding">
-        <span class="founding-tag">Founding client terms &middot; First three clients</span>
-        <p>For the first three clients, the $1,500 is credited against the first month of Monthly Monitoring if signed within 30 days of delivery. If you continue, the session was free.</p>
-      </div>
-      <a href="#contact" class="btn-p">Book a Session</a>
-      <p class="card-fine">Starts with a 20-minute call. Intake call Monday. Delivery session Friday. Payment after the call, not before.</p>
-    </div>
-
-    <!-- Card 2: Monthly Monitoring -->
-    <div class="card">
-      <span class="card-tag">After the session</span>
-      <h3>Monthly Monitoring</h3>
-      <div class="card-price card-price-solo">$2,500 <span>/ month</span></div>
-      <p class="card-desc">Your mapped supplier base, rescanned every month against current conditions. What moved, what did not, what is now in motion, and what it means for the orders you place next. If something breaks against your exposure between cycles, you hear from us within two business days.</p>
-      <ul>
-        <li>Monthly two-page scan and a 45 to 60 minute call</li>
-        <li>At least one exposure node sized against your own spend, lead times, and safety stock each cycle</li>
-        <li>Two business day interrupt coverage</li>
-        <li>Quarterly full re-score of your exposure map</li>
-        <li>Decision log, maintained by Strabo, shared with you</li>
-      </ul>
-      <p class="card-terms">90-day initial term, then month to month. 30 days notice. Founding clients hold $2,500 for as long as the retainer runs continuously.</p>
-      <p class="card-prereq">Requires a completed Exposure Session</p>
-      <a href="#contact" class="btn-p">Ask About Monitoring</a>
-    </div>
-
-    <!-- Card 3: Supply Chain Intelligence Brief -->
+    <!-- Card 1: Supply Chain Intelligence Brief -->
     <!-- NOV 1: tag to "Standard rate", price to $349, price sub to "/ month", remove founding box, fine print to next issue date (November 3) -->
     <div class="card">
       <span class="card-tag">First issue October 6</span>
       <h3>Supply Chain Intelligence Brief</h3>
       <div class="card-price">$299 <span>/ month &middot; Founding rate</span></div>
-      <div class="card-delivery">First Tuesday of each month &middot; 7am ET</div>
+      <div class="card-delivery">First Tuesday of each month &middot; 7am MT</div>
       <p class="card-desc">Every month, 3 to 5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure. Not what happened. What it means for your sourcing, logistics, and vendor relationships next month.</p>
       <ul>
         <li>Forward-looking. You adjust before the disruption lands, not after you have absorbed the cost.</li>
@@ -661,6 +653,44 @@ footer {
       </div>
       <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" class="btn-p" target="_blank" rel="noopener noreferrer">Get the Brief</a>
       <p class="card-fine">Issue 01 ships Tuesday, October 6.</p>
+    </div>
+
+    <!-- Card 2: Exposure Session (featured, center) -->
+    <div class="card feat">
+      <span class="card-tag">Start here &middot; One engagement per week</span>
+      <h3>Geopolitical Exposure Session</h3>
+      <div class="card-price">$1,500</div>
+      <div class="card-delivery">Paid at booking</div>
+      <p class="card-desc">Four days of research on your supply chain, delivered in one working session. You send your supplier base: countries, ports, lead times, dependencies. We map where your geopolitical exposure actually sits, go deep on the suppliers carrying the most risk (typically five to seven), and identify what is moving against them right now.</p>
+      <p class="card-listhead">You leave with:</p>
+      <ul>
+        <li>Exposure Summary: every supplier you gave us, flagged red, amber, or green, with the single point of failure named</li>
+        <li>30-Day Forward Scan: what is coming, which supplier it touches, when the window closes given your PO lead time, and the levers available to you</li>
+        <li>Two pages. Dated. Written to survive being forwarded to someone who was not on the call.</li>
+      </ul>
+      <a href="#contact" class="btn-p">Book a Session</a>
+      <p class="card-fine">Starts with a 30-minute call. Intake call Monday. Delivery session Friday. Payment after the call, not before.</p>
+    </div>
+
+    <!-- Card 3: Monthly Monitoring -->
+    <div class="card">
+      <span class="card-tag">After the session</span>
+      <h3>Monthly Monitoring</h3>
+      <div class="card-price card-price-solo">$2,500 <span>/ month</span></div>
+      <p class="card-desc">Your mapped supplier base, rescanned every month against current conditions. What moved, what did not, what is now in motion, and what it means for the orders you place next. If something breaks against your exposure between cycles, you hear from us within two business days.</p>
+      <ul>
+        <li>Monthly two-page scan and a 45 to 60 minute call</li>
+        <li>At least one exposure node sized against your own spend, lead times, and safety stock each cycle</li>
+        <li>Two business day interrupt coverage</li>
+        <li>Quarterly full re-score of your exposure map</li>
+        <li>Decision log, maintained by Strabo, shared with you</li>
+      </ul>
+      <div class="founding founding-light">
+        <span class="founding-tag">Terms</span>
+        <p>90-day initial term, then month to month. 30 days notice. Founding clients hold $2,500 for as long as the retainer runs continuously.</p>
+      </div>
+      <p class="card-prereq">Requires a completed Exposure Session</p>
+      <a href="#contact" class="btn-p">Ask About Monitoring</a>
     </div>
 
   </div>
@@ -736,7 +766,7 @@ footer {
       <div class="nl-form">
         <a href="https://chases-newsletter-60ac53.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe Free</a>
       </div>
-      <p class="nl-fine">The Strabo Signal &nbsp;&middot;&nbsp; Every Saturday &nbsp;&middot;&nbsp; 8am ET</p>
+      <p class="nl-fine">The Strabo Signal &nbsp;&middot;&nbsp; Every Saturday &nbsp;&middot;&nbsp; 8am MT</p>
     </div>
   </div>
 </section>
@@ -747,7 +777,7 @@ footer {
   <div class="contact reveal">
     <div>
       <h2>Tell us about your supply chain.</h2>
-      <p>Every engagement starts with a 20-minute call. Fill this out and we'll set it up within 24 hours. The call is where we confirm fit, answer your questions, and book the session. No payment until after we talk.</p>
+      <p>Every engagement starts with a 30-minute call. Fill this out and we'll set it up within 24 hours. The call is where we confirm fit, answer your questions, and book the session. No payment until after we talk.</p>
       <p class="c-email">chase@straboinsight.com</p>
     </div>
     <form class="c-form" name="contact" method="POST" data-netlify="true" action="/thanks">
@@ -791,22 +821,22 @@ footer {
     <h2 class="reveal">Stop reacting.<br><em style="color:#C49A4A;">Start anticipating.</em></h2>
     <p class="reveal">Choose where to start.</p>
     <div class="closing-offers" style="max-width:100%;margin:0 auto;align-items:stretch;">
-      <div style="border:0.5px solid rgba(122,143,160,0.14);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;">
-        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#F7F4EE;">Geopolitical Exposure Session</h3>
-        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#C49A4A;line-height:1;">$1,500</div>
-        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(247,244,238,0.6);line-height:1.75;">Four days of research. Two pages you can act on. Credited against your first month of monitoring if you continue.</p>
+      <div style="background:#EDE8DE;border:0.5px solid rgba(9,30,56,0.11);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;color:#091E38;">
+        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#091E38;">Geopolitical Exposure Session</h3>
+        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#091E38;line-height:1;">$1,500</div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(9,30,56,0.65);line-height:1.75;">Four days of research. Two pages you can act on. Starts with a 30-minute call.</p>
         <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:0.75rem;">
           <a href="#contact" class="btn-p">Book a Session</a>
-          <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,154,74,0.6);">Starts with a 20-minute call</p>
+          <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(9,30,56,0.55);">Payment after the call, not before.</p>
         </div>
       </div>
       <!-- NOV 1: price to $349, line to "Next issue November 3. Standard rate." -->
-      <div style="background:#EDE8DE;border:0.5px solid rgba(9,30,56,0.11);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;color:#091E38;">
-        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#091E38;">Supply Chain Intelligence Brief</h3>
-        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#091E38;line-height:1;">$299 <span style="font-family:'DM Sans',sans-serif;font-size:0.75rem;color:rgba(9,30,56,0.4);">/ month</span></div>
-        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(9,30,56,0.65);line-height:1.75;">First issue October 6. Founding rate through October, locked for as long as you stay subscribed.</p>
+      <div style="border:0.5px solid rgba(122,143,160,0.3);border-radius:2px;padding:2.75rem;display:grid;grid-template-rows:auto auto auto 1fr;gap:1.5rem;">
+        <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:1.65rem;font-weight:500;color:#F7F4EE;">Supply Chain Intelligence Brief</h3>
+        <div style="font-family:'EB Garamond',Georgia,serif;font-size:2.25rem;font-weight:500;color:#C49A4A;line-height:1;">$299 <span style="font-family:'DM Sans',sans-serif;font-size:0.75rem;color:rgba(196,154,74,0.6);">/ month</span></div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(247,244,238,0.6);line-height:1.75;">First issue October 6. Founding rate through October, locked for as long as you stay subscribed.</p>
         <div style="display:flex;flex-direction:column;justify-content:flex-end;">
-          <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" target="_blank" rel="noopener noreferrer" class="btn-s" style="border-color:rgba(9,30,56,0.22);color:#091E38;">Get the Brief</a>
+          <a href="https://buy.stripe.com/9B6eVe8XQb14bgt0kG77O00" target="_blank" rel="noopener noreferrer" class="btn-s">Get the Brief</a>
         </div>
       </div>
     </div>
