@@ -1,0 +1,69 @@
+---
+interface Props {
+  size?: number;
+  color?: string;
+  wordmarkSize?: string;
+  blockMargin?: string;
+}
+
+const icon = Astro.props.size ?? 32;
+const color = Astro.props.color ?? 'var(--paper)';
+const wordmarkSize = Astro.props.wordmarkSize ?? 'calc(var(--icon) / 0.662)';
+const blockMargin = Astro.props.blockMargin ?? 'var(--icon)';
+---
+
+<span class="lockup" style={`--icon:${icon}px;--lockup-color:${color};--wordmark-size:${wordmarkSize};--lockup-block:${blockMargin}`}>
+  <span class="lockup-row">
+    <img class="lockup-icon" src="/icon.svg" width={icon} height={icon} alt="" />
+    <span class="wordmark">Strabo Insight</span>
+  </span>
+</span>
+
+<style>
+  .lockup {
+    display: inline-flex;
+    max-width: 100%;
+    line-height: 0;
+    margin: var(--lockup-block) var(--icon);
+  }
+
+  .lockup-row {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--icon) / 2);
+    max-width: 100%;
+  }
+
+  .lockup-icon {
+    display: block;
+    width: var(--icon);
+    height: var(--icon);
+    flex: none;
+  }
+
+  .wordmark {
+    font-family: var(--fh), 'EB Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: var(--wordmark-size);
+    line-height: 0.662;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--lockup-color);
+  }
+
+  @container site-bar (max-width: 139px) {
+    .wordmark {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      min-width: 0;
+      border: 0;
+    }
+  }
+</style>

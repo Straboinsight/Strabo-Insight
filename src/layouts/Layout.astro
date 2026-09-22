@@ -1,4 +1,6 @@
 ---
+import Logo from '../components/Logo.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -19,12 +21,9 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <meta name="theme-color" content="#091E38" />
     <meta name="generator" content={Astro.generator} />
     <title>{documentTitle}</title>
@@ -43,8 +42,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   <body>
     <nav id="main-nav">
       <a href="/" class="nav-logo">
-        <span class="lg-t">STRABO</span>
-        <span class="lg-b">INSIGHT</span>
+        <Logo size={16} wordmarkSize="1.5rem" blockMargin="10px" />
       </a>
       <ul>
         <li><a href="/#problem">The Problem</a></li>
@@ -67,8 +65,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
     <footer>
       <a href="/" class="f-logo">
-        <span class="lg-t">STRABO</span>
-        <span class="lg-b">INSIGHT</span>
+        <Logo />
       </a>
       <div class="f-links">
         <a href="https://www.linkedin.com/company/strabo-insight" target="_blank" rel="noopener">LinkedIn</a>
@@ -159,6 +156,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     display: flex;
     justify-content: space-between;
     align-items: center;
+    container: site-bar / inline-size;
     padding: 1.1rem 3rem;
     border-bottom: 0.5px solid var(--bd);
     background: rgba(9, 30, 56, 0.95);
@@ -171,36 +169,18 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   }
 
   .nav-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    min-width: 0;
     text-decoration: none;
-    gap: 2px;
-  }
-
-  .nav-logo .lg-t {
-    font-family: var(--fh);
-    font-size: 1.45rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    color: var(--paper);
-    line-height: 1;
-  }
-
-  .nav-logo .lg-b {
-    font-family: var(--fb);
-    font-size: 0.48rem;
-    font-weight: 600;
-    letter-spacing: 0.42em;
-    color: var(--gold);
-    text-transform: uppercase;
-    line-height: 1;
   }
 
   nav ul {
     display: flex;
     align-items: center;
-    gap: 2.25rem;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -215,6 +195,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     color: rgba(247, 244, 238, 0.5);
     text-decoration: none;
     transition: color 0.2s;
+    white-space: nowrap;
   }
 
   nav ul a:hover {
@@ -239,7 +220,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     flex: 1 0 auto;
     width: min(52ch, 100%);
     margin: 0 auto;
-    padding: 8rem 1.5rem 4.5rem;
+    padding: 11rem 1.5rem 4.5rem;
   }
 
   .lbl {
@@ -298,7 +279,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.75;
-    color: rgba(247, 244, 238, 0.72);
+    color: var(--slate);
   }
 
   .legal-body :global(p) {
@@ -316,14 +297,15 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
   .legal-body :global(a),
   .legal-body :global(a:visited) {
-    color: var(--gold);
+    color: var(--paper);
     text-decoration: underline;
+    text-decoration-color: var(--gold);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
   }
 
   .legal-body :global(a:hover) {
-    color: #d4aa5a;
+    text-decoration-color: #d4aa5a;
   }
 
   .legal-body :global(ul) {
@@ -393,34 +375,16 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    container: site-bar / inline-size;
     background: var(--navy-deep);
   }
 
   .f-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    min-width: 0;
     text-decoration: none;
-    gap: 3px;
-  }
-
-  .f-logo .lg-t {
-    font-family: var(--fh);
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    color: var(--paper);
-    line-height: 1;
-  }
-
-  .f-logo .lg-b {
-    font-family: var(--fb);
-    font-size: 0.42rem;
-    font-weight: 600;
-    letter-spacing: 0.4em;
-    color: var(--gold);
-    text-transform: uppercase;
-    line-height: 1;
   }
 
   .f-links {
@@ -432,7 +396,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   .f-links a {
     font-family: var(--fm);
     font-size: 0.58rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--fine-on-navy);
     text-decoration: none;
@@ -449,7 +413,8 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     font-family: var(--fm);
     font-size: 0.55rem;
     color: var(--fine-on-navy);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   nav a:focus-visible,
@@ -473,7 +438,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     }
 
     .legal {
-      padding: 6.5rem 1.5rem 3rem;
+      padding: 9rem 1.5rem 3rem;
     }
 
     footer {
