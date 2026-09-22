@@ -1,0 +1,30 @@
+{
+  "navy": {
+    "hex": "#091E38",
+    "role": "Primary background, cards, sections"
+  },
+  "navyDeep": {
+    "hex": "#060F1C",
+    "role": "Hero and footer backgrounds, darkest surfaces"
+  },
+  "navyMid": {
+    "hex": "#0D3D6E",
+    "role": "Dividers, borders, rule lines"
+  },
+  "gold": {
+    "hex": "#C49A4A",
+    "role": "CTAs, prices, label eyebrows, accent lines, icons"
+  },
+  "slate": {
+    "hex": "#7A8FA0",
+    "role": "Body copy on dark backgrounds, subtext, metadata"
+  },
+  "paper": {
+    "hex": "#F7F4EE",
+    "role": "Headlines and primary text on dark backgrounds"
+  },
+  "paperWarm": {
+    "hex": "#EDE8DE",
+    "role": "Light card and section backgrounds"
+  }
+}

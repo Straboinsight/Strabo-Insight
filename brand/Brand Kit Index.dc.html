@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#091E38;}a{color:#C49A4A;text-decoration:none;}a:hover{color:#F7F4EE;}*{box-sizing:border-box;}</style>
+</helmet>
+<div data-screen-label="Brand Kit" style="background:#091E38;color:#F7F4EE;font-family:'DM Sans',sans-serif;padding:48px 56px 40px;display:flex;flex-direction:column;gap:40px;max-width:1400px;">
+  <header style="border-bottom:1px solid #0D3D6E;padding-bottom:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#C49A4A;">Brand Kit · Direction B · Quadrant</div>
+      <h1 style="font-family:'EB Garamond',serif;font-weight:500;font-size:40px;line-height:1;margin:0;">Strabo Insight Asset Kit</h1>
+    </div>
+    <div style="font-size:13px;color:#7A8FA0;font-weight:300;max-width:420px;line-height:1.5;">SVG masters are the source of truth. PNGs are pre-rendered for tools that can't take SVG. Click any file to open it.</div>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:18px;">
+    <div style="display:flex;align-items:baseline;gap:16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#C49A4A;white-space:nowrap;">Icon</div><div style="flex:1;height:1px;background:#0D3D6E;"></div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;">
+      <sc-for list="{{ icons }}" as="f" hint-placeholder-count="7">
+        <a href="{{ f.path }}" target="_blank" style="display:flex;flex-direction:column;gap:10px;border:1px solid #0D3D6E;padding:14px;background:#060F1C;">
+          <div style="height:96px;display:grid;place-items:center;background:{{ f.bg }};"><img src="{{ f.path }}" style="width:64px;height:64px;" alt=""></div>
+          <div style="font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#7A8FA0;word-break:break-all;">{{ f.name }}</div>
+        </a>
+      </sc-for>
+    </div>
+    <div style="font-size:12.5px;color:#7A8FA0;font-weight:300;">PNG sizes in <a href="icon/png/" target="_blank">icon/png</a>: 16, 32, 48, 64, 180, 512, 1024 for navy, navy-deep, and paper tiles. Favicon set in <a href="favicon/" target="_blank">favicon/</a>.</div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px;">
+    <div style="display:flex;align-items:baseline;gap:16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#C49A4A;white-space:nowrap;">Wordmark and Lockup</div><div style="flex:1;height:1px;background:#0D3D6E;"></div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;">
+      <sc-for list="{{ marks }}" as="f" hint-placeholder-count="10">
+        <a href="{{ f.path }}" target="_blank" style="display:flex;flex-direction:column;gap:10px;border:1px solid #0D3D6E;padding:14px;background:#060F1C;">
+          <div style="height:120px;display:grid;place-items:center;background:{{ f.bg }};padding:12px;"><img src="{{ f.path }}" style="max-width:100%;max-height:96px;width:auto;height:auto;object-fit:contain;" alt=""></div>
+          <div style="font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#7A8FA0;word-break:break-all;">{{ f.name }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px;">
+    <div style="display:flex;align-items:baseline;gap:16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#C49A4A;white-space:nowrap;">Social</div><div style="flex:1;height:1px;background:#0D3D6E;"></div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;">
+      <sc-for list="{{ social }}" as="f" hint-placeholder-count="3">
+        <a href="{{ f.path }}" target="_blank" style="display:flex;flex-direction:column;gap:10px;border:1px solid #0D3D6E;padding:14px;background:#060F1C;">
+          <div style="height:120px;display:grid;place-items:center;"><img src="{{ f.path }}" style="max-width:100%;max-height:96px;width:auto;height:auto;object-fit:contain;" alt=""></div>
+          <div style="font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#7A8FA0;word-break:break-all;">{{ f.name }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px;">
+    <div style="display:flex;align-items:baseline;gap:16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#C49A4A;white-space:nowrap;">Tokens and Templates</div><div style="flex:1;height:1px;background:#0D3D6E;"></div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;font-size:13px;">
+      <a href="tokens/colors.css" target="_blank" style="border:1px solid #0D3D6E;padding:16px;background:#060F1C;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#C49A4A;">colors.css</span><span style="color:#7A8FA0;font-weight:300;">CSS custom properties for the palette and font stacks.</span></a>
+      <a href="tokens/colors.json" target="_blank" style="border:1px solid #0D3D6E;padding:16px;background:#060F1C;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#C49A4A;">colors.json</span><span style="color:#7A8FA0;font-weight:300;">Name, hex, role. For Figma plugins and design tokens.</span></a>
+      <a href="tokens/fonts.html" target="_blank" style="border:1px solid #0D3D6E;padding:16px;background:#060F1C;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#C49A4A;">fonts.html</span><span style="color:#7A8FA0;font-weight:300;">Google Fonts link tag with the exact weights in use.</span></a>
+      <a href="email-signature.html" target="_blank" style="border:1px solid #0D3D6E;padding:16px;background:#060F1C;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#C49A4A;">email-signature.html</span><span style="color:#7A8FA0;font-weight:300;">Table-based signature for Gmail and Outlook.</span></a>
+      <a href="README.md" target="_blank" style="border:1px solid #0D3D6E;padding:16px;background:#060F1C;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#C49A4A;">README.md</span><span style="color:#7A8FA0;font-weight:300;">Folder map and usage rules for collaborators.</span></a>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid #0D3D6E;padding-top:16px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#7A8FA0;">Strabo Insight Brand Kit · Internal Use · 2026 · straboinsight.com</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (dir, names, bgs) => names.map((n, i) => ({ name: n, path: `${dir}/${n}`, bg: bgs[i] }));
+    return {
+      icons: mk('icon', ['icon-navy.svg','icon-navy-deep.svg','icon-paper.svg','icon-gold-tile.svg','icon-mono-navy.svg','icon-mono-paper.svg','icon-mono-gold.svg'], ['#F7F4EE','#F7F4EE','#091E38','#091E38','#F7F4EE','#091E38','#091E38']),
+      marks: [
+        ...mk('wordmark', ['wordmark-paper-transparent.svg','wordmark-navy-transparent.svg','wordmark-on-navy.svg','wordmark-on-paper.svg'], ['#091E38','#F7F4EE','transparent','transparent']),
+        ...mk('lockup', ['lockup-horizontal-paper-transparent.svg','lockup-horizontal-navy-transparent.svg','lockup-horizontal-on-navy.svg','lockup-horizontal-on-paper.svg','lockup-stacked-on-navy.svg','lockup-stacked-on-paper.svg'], ['#091E38','#F7F4EE','transparent','transparent','transparent','transparent']),
+      ],
+      social: mk('social', ['linkedin-avatar-400.png','linkedin-banner-1584x396.png','og-image-1200x630.png'], ['transparent','transparent','transparent']),
+    };
+  }
+}
+</script>
+</body>
+</html>

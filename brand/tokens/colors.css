@@ -1,0 +1,12 @@
+:root{
+  --navy:#091E38;
+  --navy-deep:#060F1C;
+  --navy-mid:#0D3D6E;
+  --gold:#C49A4A;
+  --slate:#7A8FA0;
+  --paper:#F7F4EE;
+  --paper-warm:#EDE8DE;
+  --font-display:'EB Garamond',Garamond,Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --font-meta:'Space Mono',ui-monospace,monospace;
+}
