@@ -4,9 +4,11 @@ interface Props {
   description: string;
   effectiveDate?: string | null;
   body: string;
+  eyebrow?: string | null;
+  robots?: string;
 }
 
-const { title, description, effectiveDate = null, body } = Astro.props;
+const { title, description, effectiveDate = null, body, eyebrow = 'Legal', robots } = Astro.props;
 const documentTitle = `${title} | Strabo Insight`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -27,6 +29,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     <meta name="generator" content={Astro.generator} />
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Strabo Insight" />
@@ -55,7 +58,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
     <main class="legal">
       <header class="legal-header">
-        <p class="lbl">Legal</p>
+        {eyebrow && <p class="lbl">{eyebrow}</p>}
         <h1>{title}</h1>
         {effectiveDate && <p class="dateline">{effectiveDate}</p>}
       </header>

@@ -448,6 +448,7 @@ nav ul a:hover { color: var(--paper); }
 .f-field input::placeholder, .f-field textarea::placeholder { color: rgba(122,143,160,0.5); }
 .f-field textarea { resize: vertical; min-height: 130px; }
 .f-fine { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; color: var(--fine-on-navy); margin-top: 0.75rem; line-height: 1.6; }
+.bot-field { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 /* ─── CLOSING CTA ─── */
 /* ─── CLOSING CTA ─── */
@@ -802,8 +803,11 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
       <p>Every engagement starts with a 30-minute call. Fill this out and we'll set it up within 24 hours. The call is where we confirm fit, answer your questions, and book the session. No payment until after we talk.</p>
       <p class="c-email">chase@straboinsight.com</p>
     </div>
-    <form class="c-form" name="contact" method="POST" data-netlify="true" action="/thanks">
-      <input type="hidden" name="form-name" value="contact">
+    <form class="c-form" name="Contact Form" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="Contact Form">
+      <p class="bot-field" aria-hidden="true">
+        <label>Leave this field empty<input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
       <div class="f-field">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
@@ -821,12 +825,12 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
         <input type="email" id="email" name="email" placeholder="your@company.com" required autocomplete="email">
       </div>
       <div class="f-field">
-        <label for="sourcing">Where do you source from?</label>
-        <input type="text" id="sourcing" name="sourcing" placeholder="China, Vietnam, Mexico, Brazil, other">
+        <label for="source">Where do you source from?</label>
+        <input type="text" id="source" name="source" placeholder="China, Vietnam, Mexico, Brazil, other">
       </div>
       <div class="f-field">
-        <label for="concern">What's your biggest supply chain exposure right now?</label>
-        <textarea id="concern" name="concern" placeholder="Tell us what's on your radar..."></textarea>
+        <label for="exposure">What's your biggest supply chain exposure right now?</label>
+        <textarea id="exposure" name="exposure" placeholder="Tell us what's on your radar..."></textarea>
       </div>
       <div>
         <button type="submit" class="btn-p">Request a Call</button>
