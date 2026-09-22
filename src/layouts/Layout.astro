@@ -44,8 +44,9 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <nav id="main-nav">
-      <a href="/" class="nav-logo">
+      <a href="/" class="nav-logo" aria-label="Strabo Insight, home">
         <Logo size={16} wordmarkSize="1.5rem" blockMargin="10px" />
       </a>
       <ul>
@@ -58,7 +59,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       </ul>
     </nav>
 
-    <main class="legal">
+    <main id="main" class="legal">
       <header class="legal-header">
         {eyebrow && <p class="lbl">{eyebrow}</p>}
         <h1>{title}</h1>
@@ -68,7 +69,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     </main>
 
     <footer>
-      <a href="/" class="f-logo">
+      <a href="/" class="f-logo" aria-label="Strabo Insight, home">
         <Logo />
       </a>
       <div class="f-links">
@@ -151,6 +152,27 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     z-index: 1;
   }
 
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 300;
+    padding: 0.7rem 1rem;
+    background: var(--navy);
+    color: var(--paper);
+    font-family: var(--fb);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transform: translateY(calc(-100% - 2rem));
+  }
+
+  .skip-link:focus {
+    transform: none;
+    outline: 2px solid var(--paper);
+    outline-offset: 3px;
+  }
+
   nav {
     position: fixed;
     top: 0;
@@ -229,7 +251,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
   .lbl {
     font-family: var(--fm);
-    font-size: 0.6rem;
+    font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
@@ -261,7 +283,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   .dateline {
     margin: -1.15rem 0 2.25rem;
     font-family: var(--fm);
-    font-size: 0.62rem;
+    font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--fine-on-navy);
@@ -359,7 +381,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
   .legal-body :global(th) {
     font-family: var(--fm);
-    font-size: 0.6rem;
+    font-size: 11px;
     font-weight: 400;
     letter-spacing: 0.14em;
     line-height: 1.5;

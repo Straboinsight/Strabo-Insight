@@ -67,3 +67,33 @@ const blockMargin = Astro.props.blockMargin ?? 'var(--icon)';
     }
   }
 </style>
+
+<script>
+  function syncLockup(lockup: HTMLElement) {
+    const word = lockup.querySelector('.wordmark');
+    const img = lockup.querySelector('img');
+    const anchor = lockup.closest('a');
+    if (!(word instanceof HTMLElement) || !(img instanceof HTMLImageElement)) return;
+    const hidden = getComputedStyle(word).position === 'absolute';
+    if (hidden) {
+      img.alt = 'Strabo Insight';
+      word.setAttribute('aria-hidden', 'true');
+      anchor?.removeAttribute('aria-label');
+    } else {
+      img.alt = '';
+      word.removeAttribute('aria-hidden');
+      anchor?.setAttribute('aria-label', 'Strabo Insight, home');
+    }
+  }
+
+  function syncLockups() {
+    document.querySelectorAll('.lockup').forEach((node) => {
+      if (node instanceof HTMLElement) syncLockup(node);
+    });
+  }
+
+  syncLockups();
+  const lockupObserver = new ResizeObserver(syncLockups);
+  document.querySelectorAll('nav, footer').forEach((el) => lockupObserver.observe(el));
+  document.addEventListener('astro:page-load', syncLockups);
+</script>

@@ -268,8 +268,7 @@
         height: size.height,
         backgroundColor: navy.css,
         rendererConfig: { antialias: true, alpha: false },
-        globeImageUrl:
-          "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg",
+        globeImageUrl: GLOBE_IMAGE,
         animateIn: true,
         showAtmosphere: true,
         atmosphereColor: "rgba(196, 154, 74, 0.22)",
@@ -300,9 +299,54 @@
   }
 
   const MOBILE_MEDIA = "(max-width: 768px)";
+  const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
+  const GLOBE_IMAGE = supportsWebp() ? "/earth-night.webp" : "/earth-night.jpg";
+
+  function supportsWebp() {
+    try {
+      return document
+        .createElement("canvas")
+        .toDataURL("image/webp")
+        .startsWith("data:image/webp");
+    } catch (err) {
+      return false;
+    }
+  }
 
   function isMobileViewport() {
     return window.matchMedia(MOBILE_MEDIA).matches;
+  }
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) {
+        resolve();
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = false;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error(src));
+      document.head.appendChild(script);
+    });
+  }
+
+  let stackPromise = null;
+
+  function loadGlobeStack() {
+    if (!stackPromise) {
+      const sources = [
+        "https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js",
+        "https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js",
+        "https://cdn.jsdelivr.net/npm/react-globe.gl",
+      ];
+      stackPromise = sources.reduce(
+        (chain, src) => chain.then(() => loadScript(src)),
+        Promise.resolve(),
+      );
+    }
+    return stackPromise;
   }
 
   function initGlobeViz() {
@@ -324,13 +368,40 @@
     ReactDOM.createRoot(container).render(React.createElement(GlobeWorld));
   }
 
-  let mobileMediaListenerAttached = false;
+  let observer = null;
+
+  function watchGlobe() {
+    if (window.matchMedia(REDUCED_MOTION).matches) return;
+    const target = document.querySelector(".hero-globe");
+    if (!target || target.dataset.globeQueued === "true") return;
+    if (!("IntersectionObserver" in window)) {
+      target.dataset.globeQueued = "true";
+      loadGlobeStack()
+        .then(() => initGlobeViz())
+        .catch((err) => console.error("Globe failed to load:", err));
+      return;
+    }
+    if (!observer) {
+      observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        if (isMobileViewport()) return;
+        target.dataset.globeQueued = "true";
+        observer.disconnect();
+        loadGlobeStack()
+          .then(() => initGlobeViz())
+          .catch((err) => console.error("Globe failed to load:", err));
+      });
+    }
+    observer.observe(target);
+  }
+
+  let mediaListenerAttached = false;
 
   function setupGlobeInit() {
-    initGlobeViz();
-    if (mobileMediaListenerAttached) return;
-    mobileMediaListenerAttached = true;
-    window.matchMedia(MOBILE_MEDIA).addEventListener("change", initGlobeViz);
+    watchGlobe();
+    if (mediaListenerAttached) return;
+    mediaListenerAttached = true;
+    window.matchMedia(MOBILE_MEDIA).addEventListener("change", watchGlobe);
   }
 
   if (document.readyState === "loading") {

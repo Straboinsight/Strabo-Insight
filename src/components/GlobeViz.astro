@@ -1,9 +1,27 @@
 ---
 // Client-only island. WebGL / window APIs must not run during SSR.
+// React, react-globe.gl, and the earth texture load from globe-init.js
+// only after the hero is in view.
 ---
+<svg class="globe-fallback" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+  <circle cx="100" cy="100" r="78" fill="none" stroke="#C49A4A" stroke-width="0.6" opacity="0.55"></circle>
+  <ellipse cx="100" cy="100" rx="78" ry="28" fill="none" stroke="#7A8FA0" stroke-width="0.4" opacity="0.45"></ellipse>
+  <ellipse cx="100" cy="100" rx="28" ry="78" fill="none" stroke="#7A8FA0" stroke-width="0.4" opacity="0.45"></ellipse>
+  <path d="M22 100H178" fill="none" stroke="#7A8FA0" stroke-width="0.4" opacity="0.45"></path>
+</svg>
 <div id="globeViz" class="hero-globe-canvas" aria-hidden="true"></div>
 
-<script is:inline src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
-<script is:inline src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
-<script is:inline src="//cdn.jsdelivr.net/npm/react-globe.gl"></script>
 <script is:inline src="/globe-init.js"></script>
+
+<style>
+  .globe-fallback {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .globe-fallback { display: block; }
+    #globeViz { display: none; }
+  }
+</style>

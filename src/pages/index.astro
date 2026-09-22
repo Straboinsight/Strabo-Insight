@@ -201,6 +201,18 @@ body::before {
 }
 
 /* ─── NAV ─── */
+.skip-link {
+  position: fixed; left: 1rem; top: 1rem; z-index: 300;
+  padding: 0.7rem 1rem;
+  background: var(--navy); color: var(--paper);
+  font-family: var(--fb); font-size: 0.9rem; font-weight: 500;
+  text-decoration: none;
+  transform: translateY(calc(-100% - 2rem));
+}
+.skip-link:focus {
+  transform: none;
+  outline: 2px solid var(--paper); outline-offset: 3px;
+}
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; justify-content: space-between; align-items: center;
@@ -245,7 +257,7 @@ nav ul a:hover { color: var(--paper); }
 
 /* ─── LABEL ─── */
 .lbl {
-  font-family: var(--fm); font-size: 0.6rem; letter-spacing: 0.2em;
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--gold); opacity: 0.7;
   display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;
 }
@@ -301,7 +313,7 @@ nav ul a:hover { color: var(--paper); }
 #globeViz canvas {
   display: block;
 }
-.hero-lbl { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; margin-bottom: 2rem; }
+.hero-lbl { font-family: var(--fm); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; margin-bottom: 2rem; }
 .hero h1 { font-family: var(--fh); font-size: clamp(3rem, 5.5vw, 6.5rem); font-weight: 500; line-height: 1.02; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; }
 .hero h1 em { font-style: italic; font-weight: 500; color: inherit; }
 .hero-sub { font-size: 1rem; font-weight: 400; color: var(--slate); max-width: 460px; line-height: 1.8; margin-bottom: 2.75rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
@@ -313,7 +325,7 @@ nav ul a:hover { color: var(--paper); }
 /* ─── TICKER ─── */
 .ticker {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
-  font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.14em;
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.14em;
   text-transform: uppercase; color: rgba(122,143,160,0.3);
   white-space: nowrap; overflow: hidden;
   border-top: 0.5px solid var(--bd); padding: 0.6rem 0;
@@ -358,7 +370,7 @@ nav ul a:hover { color: var(--paper); }
 .card:hover { box-shadow: 0 12px 40px rgba(9,30,56,0.08); }
 .card.feat { background: var(--navy); border-color: var(--gold-line); color: var(--paper); position: relative; overflow: hidden; }
 .card.feat::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--gold), rgba(196,154,74,0.2)); }
-.card-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fine-on-paper); display: block; margin-bottom: 1.75rem; }
+.card-tag { font-family: var(--fm); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fine-on-paper); display: block; margin-bottom: 1.75rem; }
 .card.feat .card-tag { color: var(--gold); opacity: 0.8; }
 .card h3 { font-family: var(--fh); font-size: 1.75rem; font-weight: 500; margin-bottom: 0.75rem; line-height: 1.15; }
 .card-price { font-family: var(--fh); font-size: 2.75rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; line-height: 1; }
@@ -369,11 +381,11 @@ nav ul a:hover { color: var(--paper); }
 .card-price span { font-family: var(--fb); font-size: 0.78rem; font-weight: 400; color: rgba(9,30,56,0.4); }
 .card.feat .card-price { color: var(--gold); }
 .card.feat .card-price span { color: rgba(196,154,74,0.5); }
-.card-delivery { font-family: var(--fm); font-size: 0.6rem; color: var(--fine-on-paper); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.card-delivery { font-family: var(--fm); font-size: 11px; color: var(--fine-on-paper); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem; }
 .card.feat .card-delivery { font-family: var(--fb); font-size: 0.85rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--slate); }
 .card-desc { font-size: 0.92rem; font-weight: 400; line-height: 1.75; margin-bottom: 2rem; color: rgba(9,30,56,0.62); }
 .card.feat .card-desc { color: var(--slate); }
-.card-listhead { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fine-on-paper); margin-bottom: -0.75rem; }
+.card-listhead { font-family: var(--fm); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fine-on-paper); margin-bottom: -0.75rem; }
 .card.feat .card-listhead { color: rgba(196,154,74,0.7); }
 .card ul { list-style: none; margin-bottom: 2rem; border-top: 0.5px solid var(--bdl); padding-top: 1.5rem; }
 .card.feat ul { border-top-color: var(--bd); }
@@ -382,7 +394,7 @@ nav ul a:hover { color: var(--paper); }
 .card ul li::before { content: ''; display: block; width: 12px; height: 1px; background: var(--gold); opacity: 0.6; flex-shrink: 0; margin-top: 0.65em; }
 .card.feat ul li::before { opacity: 1; }
 .founding { margin-bottom: 2rem; padding: 1.25rem 1.5rem; border: 0.5px solid var(--gold-line); border-radius: 1px; background: var(--gold-dim); }
-.founding-tag { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
+.founding-tag { font-family: var(--fm); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
 .founding p { font-size: 0.82rem; font-weight: 400; color: var(--slate); line-height: 1.65; }
 .founding-light { border-color: rgba(9,30,56,0.12); background: rgba(9,30,56,0.04); }
 .founding-light .founding-tag { color: var(--fine-on-paper); }
@@ -397,7 +409,7 @@ nav ul a:hover { color: var(--paper); }
 .step:last-child { border-right: none; }
 .step:hover { background: rgba(196,154,74,0.03); }
 .step-n { font-family: var(--fh); font-size: 4rem; font-weight: 400; color: rgba(247,244,238,0.12); line-height: 1; margin-bottom: 1.25rem; }
-.step-t { font-family: var(--fm); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); opacity: 0.8; margin-bottom: 0.875rem; }
+.step-t { font-family: var(--fm); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); opacity: 0.8; margin-bottom: 0.875rem; }
 .step-b { font-size: 0.875rem; font-weight: 400; color: var(--slate); line-height: 1.7; }
 
 /* ─── ABOUT ─── */
@@ -405,7 +417,7 @@ nav ul a:hover { color: var(--paper); }
 .about-l { position: sticky; top: 8rem; }
 .about-l h2 { font-family: var(--fh); font-size: 3.25rem; font-weight: 500; line-height: 1; margin-bottom: 0.35rem; }
 .about-l h2 em { font-style: italic; font-weight: 500; color: inherit; }
-.about-t { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 2.25rem; }
+.about-t { font-family: var(--fm); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 2.25rem; }
 .about-links { display: flex; flex-direction: column; gap: 0.7rem; }
 .about-links a { font-family: var(--fb); font-size: 0.78rem; font-weight: 500; color: rgba(247,244,238,0.38); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; transition: color 0.2s; letter-spacing: 0.02em; }
 .about-links a:hover { color: var(--gold); }
@@ -478,7 +490,7 @@ nav ul a:hover { color: var(--paper); }
 .closing-card.feat .closing-fine { color: var(--fine-on-paper); }
 
 /* ─── DIVIDER ─── */
-.rule { font-family: var(--fm); font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fine-on-navy); text-align: center; padding: 1.5rem; background: var(--navy-deep); border-top: 0.5px solid var(--navy-mid); border-bottom: 0.5px solid var(--navy-mid); }
+.rule { font-family: var(--fm); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fine-on-navy); text-align: center; padding: 1.5rem; background: var(--navy-deep); border-top: 0.5px solid var(--navy-mid); border-bottom: 0.5px solid var(--navy-mid); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -547,6 +559,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   nav, .f-links a { transition: none; }
+  .hero-globe { opacity: 1; animation: none; }
 }
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
@@ -573,9 +586,11 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#" class="nav-logo">
+  <a href="#" class="nav-logo" aria-label="Strabo Insight, home">
     <Logo size={16} wordmarkSize="1.5rem" blockMargin="10px" />
   </a>
   <ul>
@@ -588,6 +603,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
   </ul>
 </nav>
 
+<main id="main">
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
@@ -870,10 +886,11 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
 </section>
 
 <div class="rule">straboinsight.com &nbsp;&middot;&nbsp; geopolitical intelligence for supply chain operators &nbsp;&middot;&nbsp; 2026</div>
+</main>
 
 <!-- FOOTER -->
 <footer>
-  <a href="#" class="f-logo">
+  <a href="#" class="f-logo" aria-label="Strabo Insight, home">
     <Logo />
   </a>
   <div class="f-links">
