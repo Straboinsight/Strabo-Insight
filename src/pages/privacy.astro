@@ -1,0 +1,14 @@
+---
+import privacy from '../../content/legal/privacy-policy.md?raw';
+import Layout from '../layouts/Layout.astro';
+import { renderLegalMarkdown } from '../lib/legal-markdown';
+
+const { effectiveDate, html } = await renderLegalMarkdown(privacy);
+---
+
+<Layout
+  title="Privacy Policy"
+  description="Privacy Policy for Strabo Insight: what personal information we collect, why we use it, who we share it with, and the rights you have."
+  effectiveDate={effectiveDate}
+  body={html}
+/>

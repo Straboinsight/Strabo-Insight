@@ -1,0 +1,14 @@
+---
+import terms from '../../content/legal/terms-of-service.md?raw';
+import Layout from '../layouts/Layout.astro';
+import { renderLegalMarkdown } from '../lib/legal-markdown';
+
+const { effectiveDate, html } = await renderLegalMarkdown(terms);
+---
+
+<Layout
+  title="Terms of Service"
+  description="Terms of Service for the Strabo Insight Supply Chain Intelligence Brief, including subscription, billing, cancellation, and how you may use the Brief."
+  effectiveDate={effectiveDate}
+  body={html}
+/>

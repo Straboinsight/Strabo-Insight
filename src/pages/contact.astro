@@ -1,0 +1,14 @@
+---
+import contact from '../../content/legal/contact-and-support.md?raw';
+import Layout from '../layouts/Layout.astro';
+import { renderLegalMarkdown } from '../lib/legal-markdown';
+
+const { effectiveDate, html } = await renderLegalMarkdown(contact);
+---
+
+<Layout
+  title="Contact"
+  description="Contact Strabo Insight about a subscription, a missed issue, consulting, a correction, or anything else."
+  effectiveDate={effectiveDate}
+  body={html}
+/>

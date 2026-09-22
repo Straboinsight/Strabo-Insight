@@ -1,23 +1,497 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  effectiveDate?: string | null;
+  body: string;
+}
+
+const { title, description, effectiveDate = null, body } = Astro.props;
+const documentTitle = `${title} | Strabo Insight`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#091E38" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{documentTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Strabo Insight" />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav id="main-nav">
+      <a href="/" class="nav-logo">
+        <span class="lg-t">STRABO</span>
+        <span class="lg-b">INSIGHT</span>
+      </a>
+      <ul>
+        <li><a href="/#problem">The Problem</a></li>
+        <li><a href="/#brief">Work With Us</a></li>
+        <li><a href="/#how">Process</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#newsletter">Free Intelligence</a></li>
+        <li><a href="/#contact" class="nav-cta">Book a Session</a></li>
+      </ul>
+    </nav>
+
+    <main class="legal">
+      <header class="legal-header">
+        <p class="lbl">Legal</p>
+        <h1>{title}</h1>
+        {effectiveDate && <p class="dateline">{effectiveDate}</p>}
+      </header>
+      <div class="legal-body" set:html={body} />
+    </main>
+
+    <footer>
+      <a href="/" class="f-logo">
+        <span class="lg-t">STRABO</span>
+        <span class="lg-b">INSIGHT</span>
+      </a>
+      <div class="f-links">
+        <a href="https://www.linkedin.com/company/strabo-insight" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/#newsletter">The Strabo Signal</a>
+        <a href="/#brief">Work With Us</a>
+        <a href="/#contact">Book a Session</a>
+        <a href="/terms" aria-current={path === '/terms' ? 'page' : undefined}>Terms</a>
+        <a href="/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>Privacy</a>
+        <a href="/contact" aria-current={path === '/contact' ? 'page' : undefined}>Contact</a>
+      </div>
+      <p class="f-copy">&copy; 2026 Strabo Insight &nbsp;&middot;&nbsp; chase@straboinsight.com</p>
+    </footer>
+
+    <script>
+      const nav = document.getElementById('main-nav');
+      if (nav) {
+        const onScroll = () => {
+          nav.classList.toggle('scrolled', window.scrollY > 60);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+    </script>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  :global(*),
+  :global(*::before),
+  :global(*::after) {
+    box-sizing: border-box;
+  }
+
+  html {
+    --navy: #091E38;
+    --navy-deep: #060F1C;
+    --gold: #C49A4A;
+    --gold-dim: rgba(196, 154, 74, 0.18);
+    --gold-line: rgba(196, 154, 74, 0.3);
+    --slate: #7A8FA0;
+    --paper: #F7F4EE;
+    --bd: rgba(122, 143, 160, 0.14);
+    --fine-on-navy: rgba(122, 143, 160, 0.6);
+    --fh: 'EB Garamond', Georgia, serif;
+    --fb: 'DM Sans', system-ui, sans-serif;
+    --fm: 'Space Mono', monospace;
+    --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--navy);
+    color: var(--paper);
+    font-family: var(--fb);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: var(--grain);
+    opacity: 0.022;
+  }
+
+  nav,
+  main,
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 3rem;
+    border-bottom: 0.5px solid var(--bd);
+    background: rgba(9, 30, 56, 0.95);
+    backdrop-filter: blur(16px) saturate(1.4);
+    transition: padding 0.3s ease;
+  }
+
+  nav.scrolled {
+    padding: 0.75rem 3rem;
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    gap: 2px;
+  }
+
+  .nav-logo .lg-t {
+    font-family: var(--fh);
+    font-size: 1.45rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--paper);
+    line-height: 1;
+  }
+
+  .nav-logo .lg-b {
+    font-family: var(--fb);
+    font-size: 0.48rem;
+    font-weight: 600;
+    letter-spacing: 0.42em;
+    color: var(--gold);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul a {
+    font-family: var(--fb);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247, 244, 238, 0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover {
+    color: var(--paper);
+  }
+
+  .nav-cta {
+    background: transparent;
+    color: var(--gold) !important;
+    border: 0.5px solid var(--gold-line);
+    padding: 0.5rem 1.2rem;
+    border-radius: 1px;
+    transition: all 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-dim) !important;
+    color: var(--paper) !important;
+  }
+
+  .legal {
+    flex: 1 0 auto;
+    width: min(52ch, 100%);
+    margin: 0 auto;
+    padding: 8rem 1.5rem 4.5rem;
+  }
+
+  .lbl {
+    font-family: var(--fm);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+  }
+
+  .lbl::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 0.5px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .legal-header h1 {
+    margin: 0 0 2.25rem;
+    font-family: var(--fh);
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--paper);
+  }
+
+  .dateline {
+    margin: -1.15rem 0 2.25rem;
+    font-family: var(--fm);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fine-on-navy);
+  }
+
+  .legal-body :global(h2) {
+    margin: 2.25rem 0 0.85rem;
+    font-family: var(--fh);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--paper);
+  }
+
+  .legal-body :global(p),
+  .legal-body :global(li),
+  .legal-body :global(td) {
+    font-family: var(--fb);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgba(247, 244, 238, 0.72);
+  }
+
+  .legal-body :global(p) {
+    margin: 0 0 1.15rem;
+  }
+
+  .legal-body :global(strong) {
+    font-weight: 500;
+    color: var(--paper);
+  }
+
+  .legal-body :global(em) {
+    font-style: italic;
+  }
+
+  .legal-body :global(a),
+  .legal-body :global(a:visited) {
+    color: var(--gold);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .legal-body :global(a:hover) {
+    color: #d4aa5a;
+  }
+
+  .legal-body :global(ul) {
+    margin: 0.35rem 0 1.35rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .legal-body :global(li) {
+    position: relative;
+    margin: 0.45rem 0;
+    padding-left: 1.15rem;
+  }
+
+  .legal-body :global(li)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 12px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .legal-body :global(hr) {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 0.5px solid var(--bd);
+  }
+
+  .legal-body :global(table) {
+    width: 100%;
+    margin: 0.5rem 0 1.35rem;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .legal-body :global(th),
+  .legal-body :global(td) {
+    padding: 0.75rem 0.85rem 0.75rem 0;
+    vertical-align: top;
+    text-align: left;
+    border-bottom: 0.5px solid var(--bd);
+    overflow-wrap: break-word;
+  }
+
+  .legal-body :global(th) {
+    font-family: var(--fm);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .legal-body :global(th:first-child),
+  .legal-body :global(td:first-child) {
+    width: 38%;
+  }
+
+  footer {
+    padding: 2.75rem 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--navy-deep);
+  }
+
+  .f-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    gap: 3px;
+  }
+
+  .f-logo .lg-t {
+    font-family: var(--fh);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--paper);
+    line-height: 1;
+  }
+
+  .f-logo .lg-b {
+    font-family: var(--fb);
+    font-size: 0.42rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .f-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.75rem;
+  }
+
+  .f-links a {
+    font-family: var(--fm);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fine-on-navy);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .f-links a:hover,
+  .f-links a[aria-current='page'] {
+    color: var(--gold);
+  }
+
+  .f-copy {
+    margin: 0;
+    font-family: var(--fm);
+    font-size: 0.55rem;
+    color: var(--fine-on-navy);
+    letter-spacing: 0.08em;
+  }
+
+  nav a:focus-visible,
+  footer a:focus-visible,
+  .legal-body :global(a:focus-visible) {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 1rem 1.5rem;
+    }
+
+    nav.scrolled {
+      padding: 0.85rem 1.5rem;
+    }
+
+    nav ul {
+      display: none;
+    }
+
+    .legal {
+      padding: 6.5rem 1.5rem 3rem;
+    }
+
+    footer {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem 1.5rem 4rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    :global(*),
+    :global(*::before),
+    :global(*::after) {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>

@@ -487,9 +487,10 @@ footer {
 .f-logo { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; gap: 3px; }
 .f-logo .lg-t { font-family: var(--fh); font-size: 1.1rem; font-weight: 500; letter-spacing: 0.12em; color: var(--paper); line-height: 1; }
 .f-logo .lg-b { font-family: var(--fb); font-size: 0.42rem; font-weight: 600; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; line-height: 1; }
-.f-links { display: flex; gap: 1.75rem; }
+.f-links { display: flex; flex-wrap: wrap; gap: 0.85rem 1.75rem; }
 .f-links a { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fine-on-navy); text-decoration: none; transition: color 0.2s; }
 .f-links a:hover { color: var(--gold); }
+nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .f-copy { font-family: var(--fm); font-size: 0.55rem; color: var(--fine-on-navy); letter-spacing: 0.08em; }
 
 /* ─── ANIMATIONS ─── */
@@ -541,6 +542,10 @@ footer {
   .about { grid-template-columns: 1fr; gap: 3rem; }
   .about-l { position: static; }
   .about-r { border-left: none; padding-left: 0; border-top: 0.5px solid var(--bd); padding-top: 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  nav, .f-links a { transition: none; }
 }
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
@@ -874,6 +879,9 @@ footer {
     <a href="#newsletter">The Strabo Signal</a>
     <a href="#brief">Work With Us</a>
     <a href="#contact">Book a Session</a>
+    <a href="/terms">Terms</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/contact">Contact</a>
   </div>
   <p class="f-copy">&copy; 2026 Strabo Insight &nbsp;&middot;&nbsp; chase@straboinsight.com</p>
 </footer>
