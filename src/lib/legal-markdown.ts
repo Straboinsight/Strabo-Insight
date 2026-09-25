@@ -105,6 +105,7 @@ function prepare(source: string): { effectiveDate: string | null; body: string }
       continue;
     }
     if (line.startsWith('Last updated:')) continue;
+    if (line.trim() === '**Strabo Insight**') continue;
     kept.push(line);
   }
 
