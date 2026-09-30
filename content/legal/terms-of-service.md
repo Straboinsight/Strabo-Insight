@@ -21,7 +21,7 @@ Subscriptions are billed monthly in advance at the rate shown at checkout. Payme
 
 Your subscription renews automatically each month until you cancel. By subscribing, you authorize us to charge your payment method on each renewal date.
 
-**Founding rate.** Subscribers who join at the Founding Rate keep that rate for as long as their subscription remains continuously active. If you cancel and later resubscribe, the then-current standard rate applies. The Founding Rate closes to new subscribers on November 1, 2026.
+**Founding rate.** Subscribers who join at the Founding Rate keep that rate for as long as their subscription remains continuously active. If you cancel and later resubscribe, the then-current standard rate applies. The Founding Rate closes to new subscribers on December 1, 2026.
 
 **Price changes.** We may change the standard subscription price on 30 days' written notice to your subscription email. Any change takes effect at your next renewal after that notice period. If you don't want to continue at the new price, you may cancel before it takes effect.
 
