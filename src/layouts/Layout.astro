@@ -460,6 +460,13 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     }
 
     nav ul {
+      display: flex;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li:not(:has(> .nav-cta)) {
       display: none;
     }
 
@@ -471,6 +478,14 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       flex-direction: column;
       align-items: flex-start;
       padding: 2rem 1.5rem 4rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .nav-logo {
+      container: site-bar / inline-size;
+      width: 4rem;
+      flex: none;
     }
   }
 

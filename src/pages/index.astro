@@ -351,7 +351,9 @@ nav ul a:hover { color: var(--paper); }
 .signal-band .card-tag { color: var(--paper); margin-bottom: 0.75rem; }
 .signal-band h3 { font-family: var(--fh); font-size: 1.75rem; font-weight: 500; line-height: 1.15; color: var(--paper); margin-bottom: 0.75rem; }
 .signal-band p { font-size: 0.92rem; font-weight: 400; line-height: 1.75; color: var(--paper); margin: 0; max-width: 42rem; }
-.signal-band .btn-p { flex: none; }
+.signal-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 0.85rem; flex: none; }
+.archive-link { font-family: var(--fb); font-size: 0.78rem; font-weight: 500; color: rgba(247,244,238,0.62); text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 0.5px; }
+.archive-link:hover { color: var(--gold); }
 .card { border: 0.5px solid var(--bdl); border-radius: 2px; padding: 2.25rem; background: var(--paper-warm); transition: box-shadow 0.3s; display: flex; flex-direction: column; }
 .card > .btn-p { align-self: flex-start; margin-top: auto; }
 .card-prereq { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fine-on-paper); margin-bottom: 2rem; }
@@ -425,7 +427,8 @@ nav ul a:hover { color: var(--paper); }
 .nl-inner h2 { font-family: var(--fh); font-size: clamp(2rem,2.75vw,3rem); font-weight: 500; line-height: 1.1; margin-bottom: 1.25rem; }
 .nl-inner h2 em { font-style: italic; font-weight: 500; color: inherit; }
 .nl-inner p { font-size: 0.95rem; font-weight: 400; color: var(--slate); line-height: 1.8; }
-.nl-form { margin-bottom: 1rem; }
+.nl-form { margin-bottom: 0.85rem; }
+.nl-inner .archive-link { display: inline-block; margin-bottom: 1rem; }
 .nl-form a { display: inline-block; background: var(--gold); color: var(--navy); border: none; padding: 1rem 1.5rem; font-family: var(--fb); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s; text-decoration: none; border-radius: 1px; }
 .nl-form a:hover { background: #d4aa5a; }
 .nl-fine { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fine-on-navy); }
@@ -446,6 +449,7 @@ nav ul a:hover { color: var(--paper); }
   transition: border-color 0.2s, background 0.2s; width: 100%;
 }
 .f-field select { appearance: none; cursor: pointer; }
+.f-field select:invalid { color: rgba(122,143,160,0.5); }
 .f-field select option { background: var(--navy); color: var(--paper); }
 .f-field input:focus, .f-field textarea:focus, .f-field select:focus { border-color: var(--gold); background: rgba(196,154,74,0.04); }
 .f-field input::placeholder, .f-field textarea::placeholder { color: rgba(122,143,160,0.5); }
@@ -552,7 +556,10 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
 }
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
-  nav ul { display: none; }
+  nav ul { display: flex; gap: 0; margin: 0; padding: 0; }
+  nav ul li:not(:has(> .nav-cta)) { display: none; }
+  .signal-actions { align-items: stretch; }
+  .signal-actions .archive-link { text-align: center; }
   .hero { min-height: auto; }
   .hero-globe { display: none; }
   .hero, .sec, .sec-l, .nl, .contact-sec, .closing { padding: 5rem 1.5rem; }
@@ -572,6 +579,9 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
   .nl-inner { grid-template-columns: 1fr; gap: 3rem; }
   footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem 4rem; }
   .f-links { flex-wrap: wrap; }
+}
+@media (max-width: 560px) {
+  .nav-logo { container: site-bar / inline-size; width: 4rem; flex: none; }
 }
 </style>
 </head>
@@ -693,7 +703,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
       </ul>
       <div class="founding founding-light">
         <span class="founding-tag">Terms</span>
-        <p>90-day initial term, then month to month. 30 days notice. Founding clients hold $2,500 for as long as the retainer runs continuously.</p>
+        <p>90-day initial term, then month to month. 30 days notice.</p>
       </div>
       <p class="card-prereq">Requires a completed Exposure Session</p>
       <a href="#contact" class="btn-p">Ask About Monitoring</a>
@@ -706,7 +716,10 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
       <h3>Read the free weekly version first.</h3>
       <p>The Strabo Signal. Every Saturday, the week's geopolitical developments that matter for US importers, and what to watch next. No cost, no pitch.</p>
     </div>
-    <a href="https://chases-newsletter-60ac53.beehiiv.com/subscribe" class="btn-p" target="_blank" rel="noopener noreferrer">Subscribe free</a>
+    <div class="signal-actions">
+      <a href="https://chases-newsletter-60ac53.beehiiv.com/subscribe" class="btn-p" target="_blank" rel="noopener noreferrer">Subscribe free</a>
+      <a href="https://chases-newsletter-60ac53.beehiiv.com" class="archive-link" target="_blank" rel="noopener noreferrer">Read past issues</a>
+    </div>
   </div>
 </section>
 
@@ -780,6 +793,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
       <div class="nl-form">
         <a href="https://chases-newsletter-60ac53.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe Free</a>
       </div>
+      <a href="https://chases-newsletter-60ac53.beehiiv.com" class="archive-link" target="_blank" rel="noopener noreferrer">Read past issues</a>
       <p class="nl-fine">The Strabo Signal &nbsp;&middot;&nbsp; Every Saturday &nbsp;&middot;&nbsp; 8am MT</p>
     </div>
   </div>
@@ -814,6 +828,15 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
       <div class="f-field">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="your@company.com" required autocomplete="email">
+      </div>
+      <div class="f-field">
+        <label for="interest">What are you interested in?</label>
+        <select id="interest" name="interest" required>
+          <option value="" disabled selected>Select one</option>
+          <option>Exposure Session</option>
+          <option>Monthly Monitoring</option>
+          <option>Not sure yet</option>
+        </select>
       </div>
       <div class="f-field">
         <label for="source">Where do you source from?</label>
