@@ -12,11 +12,7 @@ I aim to respond within one business day.
 
 ## What to write about
 
-**Subscription and billing**: cancellations, receipts, changing your card, updating the email your Brief goes to, questions about a charge. You can also manage your card and cancel directly through the customer portal link at the bottom of any billing email from us.
-
-**You didn't get an issue**: tell me and I'll resend it. Check spam first; a PDF from a new sender sometimes lands there. Adding chase@straboinsight.com to your contacts prevents it happening again.
-
-**Consulting**: if something in the Brief raises a question specific to your supply chain, or you want a deeper assessment of a particular lane, supplier base, or jurisdiction, write to me and tell me what you're facing.
+**Consulting**: if you want a Geopolitical Exposure Session or Monthly Monitoring, or something in the Strabo Signal raises a question specific to your supply chain, write to me and tell me what you're facing.
 
 **Corrections**: if you think something in an issue is wrong, I want to know. Point me at it and I'll check the sourcing. If it's wrong, I'll correct it in the next issue and say so.
 
