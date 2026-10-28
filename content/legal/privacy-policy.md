@@ -98,7 +98,3 @@ Questions, requests, or complaints about privacy:
 STRABO INSIGHT LLC
 30 N Gould St Ste N
 Sheridan, WY 82801
-
----
-
-*[DRAFT: not reviewed by counsel. Every statement here must match what you actually do. See the accompanying notes.]*
