@@ -10,7 +10,7 @@ import Logo from "../components/Logo.astro";
 
 <!-- Primary Meta -->
 <title>Strabo Insight | Geopolitical Intelligence for US Supply Chain Operators</title>
-<meta name="description" content="Geopolitical intelligence for US manufacturers and distributors with Asia and Latin America exposure. Exposure Sessions, monthly monitoring, and a monthly brief that turn tariffs, port closures, and policy shifts into sourcing decisions.">
+<meta name="description" content="Geopolitical risk research for US importers sourcing from Asia and Latin America. We map where your supply chain is exposed and what it means for your next PO.">
 <meta name="keywords" content="supply chain intelligence, geopolitical risk, supply chain risk, tariff analysis, sourcing intelligence, US manufacturing, Asia supply chain, Latin America supply chain, procurement intelligence, supply chain monitoring, supply chain geopolitics, manufacturing risk">
 <meta name="author" content="Strabo Insight">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -33,7 +33,7 @@ import Logo from "../components/Logo.astro";
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Strabo Insight">
 <meta property="og:title" content="Strabo Insight | Geopolitical Intelligence for US Supply Chain Operators">
-<meta property="og:description" content="Exposure Sessions, monthly monitoring, and a monthly brief that turn global flashpoints into procurement decisions for US manufacturers.">
+<meta property="og:description" content="We map where your supply chain is exposed to geopolitical risk and what it means for your next PO. Research for US importers sourcing from Asia and Latin America.">
 <meta property="og:url" content="https://straboinsight.com/">
 <meta property="og:image" content="https://straboinsight.com/og-image-1200x630.png">
 <meta property="og:image:secure_url" content="https://straboinsight.com/og-image-1200x630.png">
@@ -46,7 +46,7 @@ import Logo from "../components/Logo.astro";
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Strabo Insight | Geopolitical Intelligence for US Supply Chain Operators">
-<meta name="twitter:description" content="Exposure Sessions, monthly monitoring, and a monthly brief that turn global flashpoints into procurement decisions for US manufacturers.">
+<meta name="twitter:description" content="We map where your supply chain is exposed to geopolitical risk and what it means for your next PO. Research for US importers sourcing from Asia and Latin America.">
 <meta name="twitter:image" content="https://straboinsight.com/og-image-1200x630.png">
 <meta name="twitter:image:alt" content="Strabo Insight | Supply chain geopolitical intelligence">
 
@@ -68,7 +68,7 @@ import Logo from "../components/Logo.astro";
         "height": 512
       },
       "image": "https://straboinsight.com/og-image-1200x630.png",
-      "description": "Geopolitical intelligence for US supply chain operators. Monthly briefs and exposure sessions that translate global flashpoints into procurement and sourcing decisions.",
+      "description": "Geopolitical intelligence for US supply chain operators. Exposure sessions and monthly monitoring that translate global flashpoints into procurement and sourcing decisions.",
       "founder": {
         "@type": "Person",
         "name": "Chase",
@@ -95,32 +95,6 @@ import Logo from "../components/Logo.astro";
     },
     {
       "@type": "Service",
-      "@id": "https://straboinsight.com/#brief",
-      "name": "Supply Chain Intelligence Brief",
-      "serviceType": "Geopolitical intelligence subscription",
-      "provider": { "@id": "https://straboinsight.com/#organization" },
-      "areaServed": "United States",
-      "audience": {
-        "@type": "BusinessAudience",
-        "audienceType": "US manufacturers and supply chain operators with Asia or Latin America exposure"
-      },
-      "description": "Monthly intelligence brief covering 3 to 5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure.",
-      "offers": {
-        "@type": "Offer",
-        "price": "299",
-        "priceCurrency": "USD",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": "299",
-          "priceCurrency": "USD",
-          "unitText": "MONTH"
-        },
-        "url": "https://straboinsight.com/#brief",
-        "availability": "https://schema.org/InStock"
-      }
-    },
-    {
-      "@type": "Service",
       "@id": "https://straboinsight.com/#exposure-session",
       "name": "Geopolitical Exposure Session",
       "serviceType": "Supply chain risk consulting engagement",
@@ -131,7 +105,7 @@ import Logo from "../components/Logo.astro";
         "@type": "Offer",
         "price": "1500",
         "priceCurrency": "USD",
-        "url": "https://straboinsight.com/#brief",
+        "url": "https://straboinsight.com/#work",
         "availability": "https://schema.org/InStock"
       }
     },
@@ -153,7 +127,7 @@ import Logo from "../components/Logo.astro";
           "priceCurrency": "USD",
           "unitText": "MONTH"
         },
-        "url": "https://straboinsight.com/#brief",
+        "url": "https://straboinsight.com/#work",
         "availability": "https://schema.org/InStock"
       }
     }
@@ -361,7 +335,23 @@ nav ul a:hover { color: var(--paper); }
 .offer-head { max-width: 640px; margin-bottom: 4.5rem; }
 .offer-head h2 { font-family: var(--fh); font-size: clamp(2.25rem,3.5vw,3.75rem); font-weight: 500; line-height: 1.08; color: var(--navy); margin-bottom: 1rem; }
 .offer-head p { font-size: 0.97rem; color: rgba(9,30,56,0.6); line-height: 1.75; }
-.offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+.offers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; align-items: stretch; }
+.signal-band {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  background: var(--navy);
+  color: var(--paper);
+  border: 0.5px solid var(--bd);
+  border-radius: 2px;
+  padding: 2rem 2.5rem;
+}
+.signal-band .card-tag { color: var(--paper); margin-bottom: 0.75rem; }
+.signal-band h3 { font-family: var(--fh); font-size: 1.75rem; font-weight: 500; line-height: 1.15; color: var(--paper); margin-bottom: 0.75rem; }
+.signal-band p { font-size: 0.92rem; font-weight: 400; line-height: 1.75; color: var(--paper); margin: 0; max-width: 42rem; }
+.signal-band .btn-p { flex: none; }
 .card { border: 0.5px solid var(--bdl); border-radius: 2px; padding: 2.25rem; background: var(--paper-warm); transition: box-shadow 0.3s; display: flex; flex-direction: column; }
 .card > .btn-p { align-self: flex-start; margin-top: auto; }
 .card-prereq { font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fine-on-paper); margin-bottom: 2rem; }
@@ -551,7 +541,6 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
   .prob-header { grid-template-columns: 1fr; gap: 3rem; }
   .offers { grid-template-columns: 1fr; }
   .card { padding: 3rem; }
-  .card.feat { order: -1; }
   .about { grid-template-columns: 1fr; gap: 3rem; }
   .about-l { position: static; }
   .about-r { border-left: none; padding-left: 0; border-top: 0.5px solid var(--bd); padding-top: 3rem; }
@@ -573,6 +562,8 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
   .bento-item:last-child { border-bottom: none; }
   .step { border-right: none; border-bottom: 0.5px solid var(--bd); }
   .offers, .closing-offers { grid-template-columns: 1fr; }
+  .signal-band { flex-direction: column; align-items: stretch; }
+  .signal-band .btn-p { width: 100%; text-align: center; }
   .card { padding: 2.25rem 1.5rem; }
   .offer-head { grid-template-columns: 1fr; gap: 2rem; }
   .offer-head p { text-align: left; max-width: 100%; }
@@ -595,7 +586,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
   </a>
   <ul>
     <li><a href="#problem">The Problem</a></li>
-    <li><a href="#brief">Work With Us</a></li>
+    <li><a href="#work">Work With Us</a></li>
     <li><a href="#how">Process</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#newsletter">Free Intelligence</a></li>
@@ -612,8 +603,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
     <p class="hero-sub">Tariffs shift. Ports close. Policies change overnight. Most operations leaders find out too late. Strabo Insight puts the intelligence in front of you first.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-p">Book an Exposure Session</a>
-      <!-- DEC 1: change to "Get the Brief · $349/mo" -->
-      <a href="https://buy.stripe.com/8x28wQ4HAedg5W99Vg77O01" class="btn-s" target="_blank" rel="noopener noreferrer">Get the Brief &middot; $299/mo</a>
+      <a href="#newsletter" class="btn-s">Get the free Signal</a>
     </div>
   </div>
   <div class="hero-globe">
@@ -657,37 +647,15 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
 </section>
 
 <!-- OFFERS -->
-<section class="sec-l" id="brief">
+<section class="sec-l" id="work">
   <div class="lbl lbl-dark reveal">Work With Us</div>
   <div class="offer-head reveal">
     <h2>Intelligence that pays for itself.</h2>
-    <p>Strabo is the risk team for companies that don't have one. Three ways in. Start where your exposure is.</p>
+    <p>Strabo is the risk team for companies that don't have one. Start with the session. Continue with monitoring.</p>
   </div>
   <div class="offers reveal">
 
-    <!-- Card 1: Supply Chain Intelligence Brief -->
-    <!-- DEC 1: tag to "Standard rate", price to $349, price sub to "/ month", remove founding box, fine print to the next issue date -->
-    <div class="card">
-      <span class="card-tag">First issue November 3</span>
-      <h3>Supply Chain Intelligence Brief</h3>
-      <div class="card-price">$299 <span>/ month &middot; Founding rate</span></div>
-      <div class="card-delivery">First Tuesday of each month &middot; 7am MT</div>
-      <p class="card-desc">Every month, 3 to 5 active geopolitical flashpoints translated into specific operational decisions for US manufacturers with Asia or Latin America supply chain exposure. Not what happened. What it means for your sourcing, logistics, and vendor relationships next month.</p>
-      <ul>
-        <li>Forward-looking. You adjust before the disruption lands, not after you have absorbed the cost.</li>
-        <li>Written for the person placing the order, not a risk committee.</li>
-        <li>Severity-flagged: Low, Elevated, High.</li>
-        <li>Every flashpoint answers one question: what do I do differently on Monday?</li>
-      </ul>
-      <div class="founding founding-light">
-        <span class="founding-tag">Founding rate &middot; Through November 30</span>
-        <p>$299/month, locked for as long as you stay subscribed. Standard rate is $349/month from December 1. Founding subscribers receive Issue 01 regardless of when they join through November 30. Cancel anytime. If you cancel, you lose the rate.</p>
-      </div>
-      <a href="https://buy.stripe.com/8x28wQ4HAedg5W99Vg77O01" class="btn-p" target="_blank" rel="noopener noreferrer">Get the Brief</a>
-      <p class="card-fine">Issue 01 ships Tuesday, November 3.</p>
-    </div>
-
-    <!-- Card 2: Exposure Session (featured, center) -->
+    <!-- Exposure Session -->
     <div class="card feat">
       <span class="card-tag">Start here &middot; One engagement per week</span>
       <h3>Geopolitical Exposure Session</h3>
@@ -732,6 +700,14 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
     </div>
 
   </div>
+  <div class="signal-band reveal">
+    <div>
+      <span class="card-tag">Not ready for a session</span>
+      <h3>Read the free weekly version first.</h3>
+      <p>The Strabo Signal. Every Saturday, the week's geopolitical developments that matter for US importers, and what to watch next. No cost, no pitch.</p>
+    </div>
+    <a href="https://chases-newsletter-60ac53.beehiiv.com/subscribe" class="btn-p" target="_blank" rel="noopener noreferrer">Subscribe free</a>
+  </div>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -760,7 +736,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
     <div class="step">
       <div class="step-n">04</div>
       <div class="step-t">We Deliver</div>
-      <p class="step-b">The intelligence reaches you as a one-week working session, ongoing monthly monitoring, or a monthly brief. The format depends on where your exposure is. The standard doesn't change.</p>
+      <p class="step-b">The intelligence reaches you as a one-week working session or as ongoing monthly monitoring. The format depends on where your exposure is. The standard doesn't change.</p>
     </div>
     <div class="step">
       <div class="step-n">05</div>
@@ -871,14 +847,13 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
           <p class="closing-fine">Payment after the call, not before.</p>
         </div>
       </div>
-      <!-- DEC 1: price to $349, line to the next issue and "Standard rate.", remove fine print -->
       <div class="closing-card">
-        <h3>Supply Chain Intelligence Brief</h3>
-        <div class="price">$299 <span>/ month</span></div>
-        <p class="closing-line">First issue November 3. Founding rate locked while you stay subscribed.</p>
+        <h3>The Strabo Signal</h3>
+        <div class="price">Free <span>/ every Saturday</span></div>
+        <p class="closing-line">The week's geopolitical developments for US importers, and what to watch next. The free way in.</p>
         <div class="closing-cta">
-          <a href="https://buy.stripe.com/8x28wQ4HAedg5W99Vg77O01" target="_blank" rel="noopener noreferrer" class="btn-s">Get the Brief</a>
-          <p class="closing-fine">Standard rate $349 from December 1.</p>
+          <a href="https://chases-newsletter-60ac53.beehiiv.com/subscribe" class="btn-s" target="_blank" rel="noopener noreferrer">Subscribe free</a>
+          <p class="closing-fine">No cost. Unsubscribe anytime.</p>
         </div>
       </div>
     </div>
@@ -896,7 +871,7 @@ nav a:focus-visible, .f-links a:focus-visible, .f-logo:focus-visible { outline: 
   <div class="f-links">
     <a href="https://www.linkedin.com/company/strabo-insight" target="_blank" rel="noopener">LinkedIn</a>
     <a href="#newsletter">The Strabo Signal</a>
-    <a href="#brief">Work With Us</a>
+    <a href="#work">Work With Us</a>
     <a href="#contact">Book a Session</a>
     <a href="/terms">Terms</a>
     <a href="/privacy">Privacy</a>
